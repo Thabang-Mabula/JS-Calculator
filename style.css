@@ -1,0 +1,74 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 2rem;
+}
+
+
+.input-area {
+  margin: 2.5em 0;
+}
+
+.tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.tg td {
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg th {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg .tg-0lax {
+  text-align: left;
+  vertical-align: top
+}
+
+button {
+  padding: 0.5em 1em;
+}
+
+.keypad-btn {
+  min-width: 3em;
+}
+
+.operator-btn {
+  min-width: 3.5em;
+}
+
+input {
+  padding: 0.5em 1em;
+}
+
+.operator-pad {
+  display: inline-block;
+}
+
+.keypad {
+  display: inline-block;
+  margin-right: 2em;
+}
+
+#result-span {
+  display: inline-block;
+}
+
+.result-area {
+  margin: 1em 0;
+}
+

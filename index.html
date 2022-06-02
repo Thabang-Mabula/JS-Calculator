@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>
+    Calculator
+  </h1>
+
+  <!-- Input area -->
+  <div class="input-area">
+
+    <input type="text" name="" id="input-field">
+    <input type="button" id="calculate-btn" value="=">
+    <input type="button" id="clear-btn" value="Clear">
+  </div>
+
+  <!-- Result area -->
+  <div class="result-area">
+    <b> Answer: </b>
+    <span id="result-span">
+
+    </span>
+  </div>
+
+ <!-- Keypad -->
+  <div class="keypad">
+    <table class="tg">
+      <tbody>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="7"></td>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="8"></th>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="9"></th>
+        </tr>  
+        <tr>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="4"></td>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="5"></td>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="6"></td>
+        </tr>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="1"></td>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="2"></td>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="3"></td>
+        </tr>
+        <tr>
+          <td class="tg-0lax"></td>
+          <td class="tg-0lax"><input type="button" class="keypad-btn" value="0"></td>
+          <td class="tg-0lax"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Operator Pad -->
+  <div class="operator-pad">
+    <table class="tg">
+      <tbody>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="operator-btn" value="+"></td>
+        </tr>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="operator-btn" value="-"></td>
+        </tr>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="operator-btn" value="&times;"></td>
+        </tr>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="operator-btn" value="&#247;"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="operator-pad">
+    <table class="tg">
+      <tbody>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="operator-btn" value="("></td>
+        </tr>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="operator-btn" value=")"></td>
+        </tr>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="operator-btn" value="^" disabled></td>
+        </tr>
+        <tr>
+          <td class="tg-0lax"><input type="button" class="operator-btn" value="log" disabled></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="module" src="./operations.mjs"></script>
+  <script type="module" src="./calculator.mjs"></script>
+  <script type="module" src="./script.mjs"></script>
+</body>
+
+</html>
