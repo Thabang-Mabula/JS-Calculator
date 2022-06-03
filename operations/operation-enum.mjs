@@ -2,7 +2,9 @@ const OperationEnum = {
     ADDITION: "+",
     SUBTRACTION: "-",
     MULTIPLICATION: "×",
-    DIVISION: "÷"
+    DIVISION: "÷",
+    OPEN_BRACKET: "(",
+    CLOSING_BRACKET: ")"
 }
 
 Object.freeze(OperationEnum)
