@@ -5,6 +5,8 @@ import { OperationEnum } from "./operations/operation-enum.mjs";
 import Subtraction from "./operations/subtraction.mjs";
 import { OperationsLookupFactory } from "/operations.mjs";
 
+const PLACE_HOLDER = "PLACE_HOLDER"
+
 const calculateResult = (expression) => {
     let results = new Stack()
     let expressions = new Stack()
@@ -14,6 +16,8 @@ const calculateResult = (expression) => {
         let currentExpression = expressions.pop()
         if (containsSubExpression(currentExpression)) {
             processCompoundExpression(currentExpression, expressions)
+        } else if (containsPlaceholder(currentExpression)) {
+            processExpressionWithPlaceHolder(currentExpression, expressions, results)
         } else {
             let result = evaluateExpression(currentExpression)
             results.push(result)
@@ -24,10 +28,20 @@ const calculateResult = (expression) => {
     return finalResult
 }
 
+const containsPlaceholder = (expression) => {
+    return expression.includes(PLACE_HOLDER)
+}
+
+const processExpressionWithPlaceHolder = (expression, expressions, results) => {
+    let recentResult = results.pop()
+    expression = expression.replace(PLACE_HOLDER, recentResult)
+    expressions.push(expression)
+}
+
 const processCompoundExpression = (exp, expressions) => {
     let startIndex = exp.indexOf(OperationEnum.OPEN_BRACKET)
     let endIndex = 0
-    for (let i = startIndex; i < exp.length; i++) {
+    for (let i = startIndex + 1; i < exp.length; i++) {
         let currentChar = exp.charAt(i)
         if (currentChar == OperationEnum.OPEN_BRACKET) {
             i = exp.indexOf(OperationEnum.CLOSING_BRACKET, i)
@@ -39,8 +53,21 @@ const processCompoundExpression = (exp, expressions) => {
     let subExpression = extractSubExpresssion(startIndex, endIndex, exp)
     let formattedExpression = replaceSubExpression(startIndex, endIndex, exp)
 
-    expressions.push(formattedExpression)
-    expressions.push(subExpression)
+    expressions.push(formattedExpression.trim())
+    expressions.push(subExpression.trim())
+}
+
+const extractSubExpresssion = (startingBracketPosition, endingBracketPosition, compoundExpression) => {
+    return compoundExpression.substring(startingBracketPosition + 1, endingBracketPosition)
+}
+
+const replaceSubExpression = (startingBracketPosition, endingBracketPosition, compoundExpression) => {
+    let subExpressionWithBrackets = compoundExpression.substring(startingBracketPosition, endingBracketPosition + 1)
+    return compoundExpression.replace(subExpressionWithBrackets, PLACE_HOLDER)
+    // let firstPartOfRemainingExpression = compoundExpression.substring(0, startingBracketPosition)
+    // lastIndexOfOriginalExpression = compoundExpression.length - 1
+    // let lastPartOfRemainingExpression = endingBracketPosition < lastIndexOfOriginalExpression? compoundExpression.substring(endingBracketPosition + 1) : ""
+    // return firstPartOfRemainingExpression + PLACE_HOLDER + lastPartOfRemainingExpression
 }
 
 const containsSubExpression = (expression) => {
@@ -53,10 +80,6 @@ const containsSubExpression = (expression) => {
 
 const evaluateExpression = (expression) => {
     let result = 0;
-
-    while (hasSubExpressions(expression)) {
-        Q
-    }
 
     const expressionArray = expression.split(" ")
 
