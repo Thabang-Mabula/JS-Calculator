@@ -92,10 +92,10 @@ const evaluateExpression = (expression) => {
         }
     }
 
-    result = numbers.popBack();
+    result = numbers.popFront();
     while (!numbers.isEmpty()) {
-        let operation = operations.popBack();
-        let nextOperand = numbers.popBack();
+        let operation = operations.popFront();
+        let nextOperand = numbers.popFront();
         result = operation.execute(result, nextOperand);
     }
 
