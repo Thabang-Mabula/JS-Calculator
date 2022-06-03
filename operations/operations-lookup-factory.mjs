@@ -1,5 +1,6 @@
 import Addition from "./addition.mjs";
 import Division from "./division.mjs";
+import Exponentiation from "./exponentiation.mjs";
 import Multiplication from "./multiplication.mjs";
 import { OperationEnum } from "./operation-enum.mjs";
 import Subtraction from "./subtraction.mjs";
@@ -15,6 +16,8 @@ export const OperationsLookupFactory = {
                 return new Multiplication()
             case OperationEnum.DIVISION:
                 return new Division()
+            case OperationEnum.EXPONENTIATION:
+                return new Exponentiation()
             default:
                 break;
         }

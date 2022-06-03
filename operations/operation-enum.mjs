@@ -3,6 +3,7 @@ const OperationEnum = {
     SUBTRACTION: "-",
     MULTIPLICATION: "×",
     DIVISION: "÷",
+    EXPONENTIATION: "^",
     OPEN_BRACKET: "(",
     CLOSING_BRACKET: ")"
 }
