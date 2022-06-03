@@ -3,17 +3,6 @@ import { calculateResult } from "./calculator.mjs"
 const input = document.getElementById("input-field");
 const resultElement = document.getElementById("result-span");
 
-// const addNumberToInput = (event) => {
-//     let element = event.target
-//     input.value = input.value + element.value + " "
-// }
-
-// const addOperatorToInput = (event) => {
-//     let element = event.target
-//     if (input.value.length > 0) addValueToInput(element.value)
-//     else input.value = element.value + " "
-// }
-
 const addValueToInput = (event) => {
     let element = event.target
     input.value = input.value + element.value + " "

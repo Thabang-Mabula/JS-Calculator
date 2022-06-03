@@ -64,10 +64,6 @@ const extractSubExpresssion = (startingBracketPosition, endingBracketPosition, c
 const replaceSubExpression = (startingBracketPosition, endingBracketPosition, compoundExpression) => {
     let subExpressionWithBrackets = compoundExpression.substring(startingBracketPosition, endingBracketPosition + 1)
     return compoundExpression.replace(subExpressionWithBrackets, PLACE_HOLDER)
-    // let firstPartOfRemainingExpression = compoundExpression.substring(0, startingBracketPosition)
-    // lastIndexOfOriginalExpression = compoundExpression.length - 1
-    // let lastPartOfRemainingExpression = endingBracketPosition < lastIndexOfOriginalExpression? compoundExpression.substring(endingBracketPosition + 1) : ""
-    // return firstPartOfRemainingExpression + PLACE_HOLDER + lastPartOfRemainingExpression
 }
 
 const containsSubExpression = (expression) => {
@@ -87,8 +83,8 @@ const evaluateExpression = (expression) => {
     let operations = new Dequeue();
 
     for (let i = 0; i < expressionArray.length; i++) {
-        // Numbers will be in even indexes, whilst operations will be in odd indexes
         let stringElement = expressionArray[i];
+         // Numbers will be in even indexes, whilst operations will be in odd indexes
         if (i % 2 == 0) {
             processNumber(stringElement, numbers, operations)
         } else {
