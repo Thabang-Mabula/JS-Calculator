@@ -1,15 +1,10 @@
-import { OperationEnum } from "../operations/operation-enum.mjs"
-
-const EXPONENTIATION_REGEX = /\d\s\^\s\d/g
+import { ExpressionPreProcessors } from "./expression-pre-processors.mjs"
 
 const PreProcessor = {
     processExpression: (expression) => {
-        if (expression.includes(OperationEnum.EXPONENTIATION)) {
-            const exponentTerms = [...expression.matchAll(EXPONENTIATION_REGEX)]
-            exponentTerms.forEach((exponentTerm) => {
-                expression = expression.replace(exponentTerm, OperationEnum.OPEN_BRACKET + " " + exponentTerm + " " + OperationEnum.CLOSING_BRACKET)
-            })
-        }
+        ExpressionPreProcessors.forEach((preProcessor) => {
+            if (preProcessor.isProcessingRequired(expression)) expression = preProcessor.processExpression(expression)
+        })
 
         return expression
     }
