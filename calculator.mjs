@@ -8,6 +8,7 @@ import { OperationsLookupFactory } from "./operations/operations-lookup-factory.
 import { NumberValidator } from "./common/validators/number-validator.mjs";
 import { OperationValidator } from "./common/validators/operator-validator.mjs";
 import InvalidInputError from "./common/errors/invalid-input-error.mjs";
+import PrimaryBinaryOperator from "./operations/primary-binary-operator.mjs";
 
 const PLACE_HOLDER = "PLACE_HOLDER"
 
@@ -115,7 +116,7 @@ const processNumber = (numbericalString, numberQueue, operationQueue,) => {
         if (recentOperation instanceof UnitaryOperator) {
             number = recentOperation.execute(number)
         }
-        else if ((recentOperation instanceof Addition || recentOperation instanceof Subtraction)) {
+        else if (recentOperation instanceof PrimaryBinaryOperator) {
             operationQueue.pushBack(recentOperation)
         } else {
             let recentNumber = numberQueue.popBack()
