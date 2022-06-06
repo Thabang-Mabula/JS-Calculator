@@ -28,10 +28,15 @@ const erase = () => {
 }
 
 const calculate = () => {
-    let expression = input.value.trim()
-    expression = PreProcessor.processExpression(expression)
-    let result = calculateResult(expression)
-    resultElement.textContent = result
+    try {
+        let expression = input.value.trim()
+        expression = PreProcessor.processExpression(expression)
+        let result = calculateResult(expression)
+        resultElement.textContent = result
+    } catch (error) {
+        alert(error.message)
+    }
+   
 }
 
 const keyPadButtons = document.querySelectorAll(".keypad-btn")
