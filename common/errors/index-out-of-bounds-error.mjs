@@ -1,8 +1,8 @@
 /**
- * @class InvalidInputError
- * @description Custom error for invalid inputs
+ * @class IndexOutOfBoundsError
+ * @description Custom error for indicating that an attempt is being made to access an invalid index in a collection
  */
-export default class InvalidInputError extends Error {
+export class IndexOutOfBoundsError extends Error {
     /**
      * Constructor
      * 

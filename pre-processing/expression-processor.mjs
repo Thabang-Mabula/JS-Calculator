@@ -1,7 +1,7 @@
 export default class ExpressionProcessor {
-    constructor() {}
+    constructor() { }
 
-    processExpression(expression) {}
+    processExpression(expression) { }
 
-    isProcessingRequired() {}
+    isProcessingRequired() { }
 }

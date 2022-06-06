@@ -10,4 +10,4 @@ const PreProcessor = {
     }
 }
 
-export {PreProcessor}
+export { PreProcessor }
