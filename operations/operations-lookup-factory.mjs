@@ -3,6 +3,7 @@ import Division from "./division.mjs";
 import Exponentiation from "./exponentiation.mjs";
 import Multiplication from "./multiplication.mjs";
 import { OperationEnum } from "./operation-enum.mjs";
+import SquareRoot from "./square-root.mjs";
 import Subtraction from "./subtraction.mjs";
 
 export const OperationsLookupFactory = {
@@ -18,6 +19,8 @@ export const OperationsLookupFactory = {
                 return new Division()
             case OperationEnum.EXPONENTIATION:
                 return new Exponentiation()
+            case OperationEnum.SQUARE_ROOT:
+                return new SquareRoot()
             default:
                 break;
         }

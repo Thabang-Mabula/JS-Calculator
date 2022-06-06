@@ -4,7 +4,7 @@ import { PreProcessor } from "./pre-processing/pre-processor.mjs";
 
 const input = document.getElementById("input-field");
 const resultElement = document.getElementById("result-span");
-
+const EMPTY_SPACE = " "
 const addNumberToInput = (event) => {
     let element = event.target
     input.value = input.value + element.value
@@ -12,9 +12,10 @@ const addNumberToInput = (event) => {
 
 const addOperatorToInput = (event) => {
     let element = event.target
-    if (element.value == OperationEnum.OPEN_BRACKET) input.value = input.value + element.value + " "
-    else if (element.value == OperationEnum.CLOSING_BRACKET) input.value = input.value + " " + element.value
-    else input.value = input.value + " " + element.value + " "
+    let newValue = input.value
+    if (input.value[input.value.length - 1] != EMPTY_SPACE) newValue += " "
+    newValue += element.value + " "
+    input.value = newValue
 }
 
 const clearCalculator = () => {
@@ -35,6 +36,7 @@ const calculate = () => {
         resultElement.textContent = result
     } catch (error) {
         alert(error.message)
+        console.error(error)
     }
    
 }
