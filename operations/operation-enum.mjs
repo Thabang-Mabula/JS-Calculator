@@ -1,3 +1,7 @@
+/**
+ * @constant OperationEnum
+ * @description Enum for various mathematical operations and their associated
+ */
 const OperationEnum = {
     ADDITION: "+",
     SUBTRACTION: "-",
