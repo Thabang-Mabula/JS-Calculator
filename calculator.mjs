@@ -1,14 +1,14 @@
-import { Queue, Stack } from "./data-structures.mjs";
-import { Dequeue } from "./data-structures/dequeue.mjs";
+import Stack from "./data-structures/stack.mjs";
+import Deque from "./data-structures/deque.mjs";
 import Addition from "./operations/addition.mjs";
 import { OperationEnum } from "./operations/operation-enum.mjs";
 import Subtraction from "./operations/subtraction.mjs";
 import UnitaryOperator from "./operations/unitary-operator.mjs";
-import BinaryOperator from "./operations/binary-operator.mjs";
 import { OperationsLookupFactory } from "./operations/operations-lookup-factory.mjs";
 import { NumberValidator } from "./common/validators/number-validator.mjs";
 import { OperationValidator } from "./common/validators/operator-validator.mjs";
 import InvalidInputError from "./common/errors/invalid-input-error.mjs";
+import PrimaryBinaryOperator from "./operations/primary-binary-operator.mjs";
 
 const PLACE_HOLDER = "PLACE_HOLDER"
 
@@ -84,8 +84,8 @@ const evaluateExpression = (expression) => {
 
     const expressionArray = expression.split(" ")
 
-    let numbers = new Dequeue();
-    let operations = new Dequeue();
+    let numbers = new Deque();
+    let operations = new Deque();
 
     for (let i = 0; i < expressionArray.length; i++) {
         let stringElement = expressionArray[i];
@@ -116,7 +116,7 @@ const processNumber = (numbericalString, numberQueue, operationQueue,) => {
         if (recentOperation instanceof UnitaryOperator) {
             number = recentOperation.execute(number)
         }
-        else if ((recentOperation instanceof Addition || recentOperation instanceof Subtraction)) {
+        else if (recentOperation instanceof PrimaryBinaryOperator) {
             operationQueue.pushBack(recentOperation)
         } else {
             let recentNumber = numberQueue.popBack()

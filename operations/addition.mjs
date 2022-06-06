@@ -1,7 +1,18 @@
-import BinaryOperator from "./binary-operator.mjs";
+import PrimaryBinaryOperator from "./primary-binary-operator.mjs";
 
-export default class Addition extends BinaryOperator {
-    execute(operand1, operand2) {
-        return operand1 + operand2
+/**
+ * @class Addition
+ * @description Class that implements the logic for addition
+ */
+export default class Addition extends PrimaryBinaryOperator {
+
+    /**
+     * Calculates the sum of the given operands
+     * @param {Number} firstOperand First operand
+     * @param {Number} secondOperand Second operand
+     * @returns {Number} Sum of the operands
+     */
+    execute(firstOperand, secondOperand) {
+        return firstOperand + secondOperand
     }
 }

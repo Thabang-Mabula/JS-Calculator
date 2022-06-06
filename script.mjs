@@ -38,7 +38,7 @@ const calculate = () => {
         alert(error.message)
         console.error(error)
     }
-   
+
 }
 
 const keyPadButtons = document.querySelectorAll(".keypad-btn")
@@ -59,7 +59,7 @@ clearButton.addEventListener('click', clearCalculator)
 
 const backspaceButton = document.getElementById("erase-btn")
 backspaceButton.addEventListener('click', erase)
-    
+
 
 
 
