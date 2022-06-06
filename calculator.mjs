@@ -7,7 +7,7 @@ import UnitaryOperator from "./operations/unitary-operator.mjs";
 import BinaryOperator from "./operations/binary-operator.mjs";
 import { OperationsLookupFactory } from "./operations/operations-lookup-factory.mjs";
 import { NumberValidator } from "./common/validators/number-validator.mjs";
-import { OperattionValidator } from "./common/validators/operator-validator.mjs";
+import { OperationValidator } from "./common/validators/operator-validator.mjs";
 import InvalidInputError from "./common/errors/invalid-input-error.mjs";
 
 const PLACE_HOLDER = "PLACE_HOLDER"
@@ -92,7 +92,7 @@ const evaluateExpression = (expression) => {
 
         if (NumberValidator.isNumber(stringElement)) {
             processNumber(stringElement, numbers, operations)
-        } else if (OperattionValidator.isOperation(stringElement)) {
+        } else if (OperationValidator.isOperation(stringElement)) {
             processOperation(stringElement, operations)
         } else {
             throw new InvalidInputError(`Invalid input '${stringElement}' detected in the calculation`)

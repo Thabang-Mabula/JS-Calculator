@@ -1,6 +1,6 @@
 import { OperationEnum } from "../../operations/operation-enum.mjs"
 
-export const OperattionValidator = {
+export const OperationValidator = {
     isOperation: (stringInput) => {
         for (let operation in OperationEnum) {
             if (OperationEnum[operation] == stringInput) return true
