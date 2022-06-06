@@ -3,7 +3,12 @@ import { Dequeue } from "./data-structures/dequeue.mjs";
 import Addition from "./operations/addition.mjs";
 import { OperationEnum } from "./operations/operation-enum.mjs";
 import Subtraction from "./operations/subtraction.mjs";
-import { OperationsLookupFactory } from "/operations.mjs";
+import UnitaryOperator from "./operations/unitary-operator.mjs";
+import BinaryOperator from "./operations/binary-operator.mjs";
+import { OperationsLookupFactory } from "./operations/operations-lookup-factory.mjs";
+import { NumberValidator } from "./common/validators/number-validator.mjs";
+import { OperattionValidator } from "./common/validators/operator-validator.mjs";
+import InvalidInputError from "./common/errors/invalid-input-error.mjs";
 
 const PLACE_HOLDER = "PLACE_HOLDER"
 
@@ -84,11 +89,13 @@ const evaluateExpression = (expression) => {
 
     for (let i = 0; i < expressionArray.length; i++) {
         let stringElement = expressionArray[i];
-         // Numbers will be in even indexes, whilst operations will be in odd indexes
-        if (i % 2 == 0) {
+
+        if (NumberValidator.isNumber(stringElement)) {
             processNumber(stringElement, numbers, operations)
-        } else {
+        } else if (OperattionValidator.isOperation(stringElement)) {
             processOperation(stringElement, operations)
+        } else {
+            throw new InvalidInputError(`Invalid input '${stringElement}' detected in the calculation`)
         }
     }
 
@@ -104,14 +111,19 @@ const evaluateExpression = (expression) => {
 
 const processNumber = (numbericalString, numberQueue, operationQueue,) => {
     let number = Number(numbericalString)
-    if (numberQueue.size() > 0) {
-        let recentOperation = operationQueue.peekBack()
-        if (!(recentOperation instanceof Addition || recentOperation instanceof Subtraction)) {
-            operationQueue.popBack()
+    if (!operationQueue.isEmpty()) {
+        let recentOperation = operationQueue.popBack()
+        if (recentOperation instanceof UnitaryOperator) {
+            number = recentOperation.execute(number)
+        }
+        else if ((recentOperation instanceof Addition || recentOperation instanceof Subtraction)) {
+            operationQueue.pushBack(recentOperation)
+        } else {
             let recentNumber = numberQueue.popBack()
             number = recentOperation.execute(recentNumber, number)
         }
     }
+
     numberQueue.pushBack(number)
 }
 

@@ -1,6 +1,6 @@
-import {Operation} from "./operation.mjs";
+import BinaryOperator from "./binary-operator.mjs";
 
-export default class Addition extends Operation {
+export default class Addition extends BinaryOperator {
     execute(operand1, operand2) {
         return operand1 + operand2
     }
