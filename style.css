@@ -19,7 +19,8 @@ input {
   font-size: var(--ui-font-size);
 }
 
-input[type=button] {
+button {
+  padding: var(--input-padding);
   font-size: var(--ui-font-size);
 }
 
@@ -27,13 +28,13 @@ input[type=button] {
   display: inline-block;
 }
 
-section.input-area {
+.input-area {
   margin-top: var(--major-section-margin-size);
   display: flex;
   width: 50vw;
 }
 
-section.keypad {
+.keypad {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -42,7 +43,7 @@ section.keypad {
   flex: 2 30vw;
 }
 
-section.operator-pad {
+.operator-pad {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -52,11 +53,11 @@ section.operator-pad {
 }
 
 
-section.result-area {
+.result-area {
   font-size: var(--ui-font-size);
 }
 
-section.expression-area {
+.expression-area {
   font-size: var(--ui-font-size);
   display: flex;
   flex-flow: row wrap;
@@ -66,16 +67,16 @@ section.expression-area {
   margin-bottom: var(--major-section-margin-size);
 }
 
-input.keypad-btn {
+.keypad-btn {
   flex: 1 25%;
   margin: 10px;
 }
 
-input.operator-btn {
+.operator-btn {
   flex: 1 40%;
   margin: 10px;
 }
 
-var#result {
+#result {
   font-style: normal;
 }
