@@ -1,7 +1,6 @@
 import { OperationEnum } from "./operations/operation-enum.js";
 import UnitaryOperator from "./operations/unitary-operator.js";
 import { OperationsLookupFactory } from "./operations/operations-lookup-factory.js";
-import { NumberValidator } from "./common/validators/number-validator.js";
 import { OperationValidator } from "./common/validators/operator-validator.js";
 import InvalidInputError from "./common/errors/invalid-input-error.js";
 import PrimaryBinaryOperator from "./operations/primary-binary-operator.js";
@@ -86,7 +85,7 @@ const evaluateExpression = (expression) => {
     for (let i = 0; i < expressionArray.length; i++) {
         let stringElement = expressionArray[i];
 
-        if (NumberValidator.isNumber(stringElement)) {
+        if (!isNaN(stringElement)) {
             processNumber(stringElement, numbers, operations)
         } else if (OperationValidator.isOperation(stringElement)) {
             processOperation(stringElement, operations)
