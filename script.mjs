@@ -3,7 +3,7 @@ import { OperationEnum } from "./operations/operation-enum.mjs";
 import { PreProcessor } from "./pre-processing/pre-processor.mjs";
 
 const input = document.getElementById("input-field");
-const resultElement = document.getElementById("result-span");
+const resultElement = document.getElementById("result");
 
 const addNumberToInput = (event) => {
     let element = event.target

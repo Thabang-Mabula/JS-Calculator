@@ -15,88 +15,57 @@
   </h1>
 
   <!-- Input area -->
-  <div class="input-area">
-
-    <input type="text" name="" id="input-field">
-    <input type="button" id="calculate-btn" value="=">
-    <input type="button" id="clear-btn" value="Clear">
-    <input type="button" id="erase-btn" value="Erase">
-  </div>
+  <section class="expression-area">
+    <input type="text" class="expression-area-element" id="input-field">
+    <input type="button" class="expression-area-element" id="calculate-btn" value="=">
+    <input type="button" class="expression-area-element" id="clear-btn" value="Clear">
+    <input type="button" class="expression-area-element" id="erase-btn" value="Erase">
+  </section>
 
   <!-- Result area -->
-  <div class="result-area">
-    <b> Answer: </b>
-    <span id="result-span">
+  <section class="result-area">
+    <strong> Answer: </strong>
+    <var id="result"></var>
+  </section>
 
-    </span>
-  </div>
+  <!-- Input area -->
+  <section class="input-area">
 
- <!-- Keypad -->
-  <div class="keypad">
-    <table class="tg">
-      <tbody>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="7"></td>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="8"></th>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="9"></th>
-        </tr>  
-        <tr>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="4"></td>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="5"></td>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="6"></td>
-        </tr>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="1"></td>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="2"></td>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="3"></td>
-        </tr>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="-"></td>
-          <td class="tg-0lax"><input type="button" class="keypad-btn" value="0"></td>
-          <td class="tg-0lax"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <!-- Keypad -->
+    <section class="keypad">
+      <input type="button" class="keypad-btn" value="7">
+      <input type="button" class="keypad-btn" value="8"></th>
+      <input type="button" class="keypad-btn" value="9"></th>
 
-  <!-- Operator Pad -->
-  <div class="operator-pad">
-    <table class="tg">
-      <tbody>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="operator-btn" value="+"></td>
-        </tr>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="operator-btn" value="-"></td>
-        </tr>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="operator-btn" value="&times;"></td>
-        </tr>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="operator-btn" value="&#247;"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <input type="button" class="keypad-btn" value="4">
+      <input type="button" class="keypad-btn" value="5">
+      <input type="button" class="keypad-btn" value="6">
 
-  <div class="operator-pad">
-    <table class="tg">
-      <tbody>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="operator-btn" value="("></td>
-        </tr>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="operator-btn" value=")"></td>
-        </tr>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="operator-btn" value="^"></td>
-        </tr>
-        <tr>
-          <td class="tg-0lax"><input type="button" class="operator-btn" value="log" disabled></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      <input type="button" class="keypad-btn" value="1">
+      <input type="button" class="keypad-btn" value="2">
+      <input type="button" class="keypad-btn" value="3">
+
+      <input type="button" class="keypad-btn" value="-">
+      <input type="button" class="keypad-btn" value="0">
+      <input type="button" class="keypad-btn" value=".">
+    </section>
+
+    <!-- Operator Pad -->
+    <section class="operator-pad">
+      <input type="button" class="operator-btn" value="+">
+      <input type="button" class="operator-btn" value="(">
+
+      <input type="button" class="operator-btn" value="-">
+      <input type="button" class="operator-btn" value=")">
+
+      <input type="button" class="operator-btn" value="&times;">
+      <input type="button" class="operator-btn" value="^">
+
+      <input type="button" class="operator-btn" value="&#247;">
+      <input type="button" class="operator-btn" value="log">
+    </section>
+
+  </section>
 
   <script type="module" src="./operations.mjs"></script>
   <script type="module" src="./calculator.mjs"></script>
