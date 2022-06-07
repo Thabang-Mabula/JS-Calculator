@@ -1,7 +1,17 @@
-import { Operation } from "./operation.mjs";
+import BinaryOperator from "./binary-operator.mjs";
 
-export default class Exponentiation extends Operation {
-    execute(operand1, operand2) {
-        return Math.pow(operand1, operand2)
+/**
+ * @class Exponentiation
+ * @description  Class that implements the logic for exponentiation
+ */
+export default class Exponentiation extends BinaryOperator {
+    /**
+     * Raises the first operand to the power of the second operand
+     * @param {Number} firstOperand First operand
+     * @param {Number} secondOperand Second operand
+     * @returns {Number} First operand raised to the power of the second operand
+     */
+    execute(firstOperand, secondOperand) {
+        return Math.pow(firstOperand, secondOperand)
     }
 }

@@ -1,8 +1,14 @@
-import { Operation } from "./operation.mjs";
+import NumericalError from '../common/errors/numerical-error.mjs'
+import BinaryOperator from "./binary-operator.mjs";
 
-export default class Division extends Operation {
+/**
+ * @class Division
+ * @description Class that implements the logic for addition
+ */
+export default class Division extends BinaryOperator {
     execute(firstOperand, secondOperand) {
-        // TODO do validation
-        return firstOperand/secondOperand;
+        if (secondOperand == 0) throw new NumericalError("Cannot divide by zero")
+
+        return firstOperand / secondOperand;
     }
 }
