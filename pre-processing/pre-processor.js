@@ -1,4 +1,4 @@
-import { ExpressionPreProcessors } from "./expression-pre-processors.mjs"
+import { ExpressionPreProcessors } from "./expression-pre-processors.js"
 
 /**
  * @constant PreProcessor

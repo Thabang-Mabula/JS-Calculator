@@ -1,14 +1,14 @@
-import Stack from "./data-structures/stack.mjs";
-import Deque from "./data-structures/deque.mjs";
-import Addition from "./operations/addition.mjs";
-import { OperationEnum } from "./operations/operation-enum.mjs";
-import Subtraction from "./operations/subtraction.mjs";
-import UnitaryOperator from "./operations/unitary-operator.mjs";
-import { OperationsLookupFactory } from "./operations/operations-lookup-factory.mjs";
-import { NumberValidator } from "./common/validators/number-validator.mjs";
-import { OperationValidator } from "./common/validators/operator-validator.mjs";
-import InvalidInputError from "./common/errors/invalid-input-error.mjs";
-import PrimaryBinaryOperator from "./operations/primary-binary-operator.mjs";
+import Stack from "./data-structures/stack.js";
+import Deque from "./data-structures/deque.js";
+import Addition from "./operations/addition.js";
+import { OperationEnum } from "./operations/operation-enum.js";
+import Subtraction from "./operations/subtraction.js";
+import UnitaryOperator from "./operations/unitary-operator.js";
+import { OperationsLookupFactory } from "./operations/operations-lookup-factory.js";
+import { NumberValidator } from "./common/validators/number-validator.js";
+import { OperationValidator } from "./common/validators/operator-validator.js";
+import InvalidInputError from "./common/errors/invalid-input-error.js";
+import PrimaryBinaryOperator from "./operations/primary-binary-operator.js";
 
 const PLACE_HOLDER = "PLACE_HOLDER"
 
@@ -133,4 +133,4 @@ const processOperation = (operationString, operationQueue) => {
 }
 
 export { calculateResult }
-export * from './script.mjs'
+export * from './script.js'

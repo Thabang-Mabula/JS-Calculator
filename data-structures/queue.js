@@ -1,4 +1,4 @@
-import { IndexOutOfBoundsError } from "../common/errors/index-out-of-bounds-error.mjs"
+import { IndexOutOfBoundsError } from "../common/errors/index-out-of-bounds-error.js"
 
 /**
  * @class Queue

@@ -1,5 +1,5 @@
-import ExpressionProcessor from "./expression-processor.mjs"
-import { OperationEnum } from "../operations/operation-enum.mjs";
+import ExpressionProcessor from "./expression-processor.js"
+import { OperationEnum } from "../operations/operation-enum.js";
 
 const EXPONENTIATION_REGEX = /\d\s\^\s\d/g
 

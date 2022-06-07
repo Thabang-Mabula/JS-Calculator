@@ -1,4 +1,4 @@
-import ExponentiationProcessor from "./exponentiation-processor.mjs";
+import ExponentiationProcessor from "./exponentiation-processor.js";
 
 /**
  * @constant ExpressionPreProcessors

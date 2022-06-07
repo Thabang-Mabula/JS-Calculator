@@ -1,6 +1,6 @@
-import { calculateResult } from "./calculator.mjs";
-import { OperationEnum } from "./operations/operation-enum.mjs";
-import { PreProcessor } from "./pre-processing/pre-processor.mjs";
+import { calculateResult } from "./calculator.js";
+import { OperationEnum } from "./operations/operation-enum.js";
+import { PreProcessor } from "./pre-processing/pre-processor.js";
 
 const input = document.getElementById("input-field")
 const resultElement = document.getElementById("result")

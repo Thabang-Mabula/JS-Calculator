@@ -1,4 +1,4 @@
-import PrimaryBinaryOperator from "./primary-binary-operator.mjs";
+import PrimaryBinaryOperator from "./primary-binary-operator.js";
 
 /**
  * @class Addition

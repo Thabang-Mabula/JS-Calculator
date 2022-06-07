@@ -1,4 +1,4 @@
-import UnitaryOperator from "./unitary-operator.mjs";
+import UnitaryOperator from "./unitary-operator.js";
 
 /**
  * @class Multiplication

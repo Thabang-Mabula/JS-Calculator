@@ -1,10 +1,10 @@
-import Addition from "./addition.mjs";
-import Division from "./division.mjs";
-import Exponentiation from "./exponentiation.mjs";
-import Multiplication from "./multiplication.mjs";
-import { OperationEnum } from "./operation-enum.mjs";
-import SquareRoot from "./square-root.mjs";
-import Subtraction from "./subtraction.mjs";
+import Addition from "./addition.js";
+import Division from "./division.js";
+import Exponentiation from "./exponentiation.js";
+import Multiplication from "./multiplication.js";
+import { OperationEnum } from "./operation-enum.js";
+import SquareRoot from "./square-root.js";
+import Subtraction from "./subtraction.js";
 
 /**
  * @class OperationsLookupFactory

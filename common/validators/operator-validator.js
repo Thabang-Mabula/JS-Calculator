@@ -1,4 +1,4 @@
-import { OperationEnum } from "../../operations/operation-enum.mjs"
+import { OperationEnum } from "../../operations/operation-enum.js"
 
 /**
  * @constant OperationValidator Util that validates mathematical operations

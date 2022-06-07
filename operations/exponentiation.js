@@ -1,4 +1,4 @@
-import BinaryOperator from "./binary-operator.mjs";
+import BinaryOperator from "./binary-operator.js";
 
 /**
  * @class Exponentiation

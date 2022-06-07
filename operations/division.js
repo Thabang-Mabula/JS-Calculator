@@ -1,5 +1,5 @@
-import NumericalError from '../common/errors/numerical-error.mjs'
-import BinaryOperator from "./binary-operator.mjs";
+import NumericalError from '../common/errors/numerical-error.js'
+import BinaryOperator from "./binary-operator.js";
 
 /**
  * @class Division
