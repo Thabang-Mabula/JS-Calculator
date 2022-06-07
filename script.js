@@ -1,39 +1,40 @@
 import { calculateResult } from "./calculator.js";
-import { OperationEnum } from "./operations/operation-enum.js";
 import { PreProcessor } from "./pre-processing/pre-processor.js";
 
-const input = document.getElementById("input-field")
+const expressionInput = document.getElementById("input-field")
+const decimanPrecisionInput = document.getElementById("decimal-precision")
 const resultElement = document.getElementById("result")
 const EMPTY_SPACE = " "
 
 const addNumberToInput = (event) => {
     let element = event.target
-    input.value = input.value + element.value
+    expressionInput.value = expressionInput.value + element.value
 }
 
 const addOperatorToInput = (event) => {
     let element = event.target
-    let newValue = input.value
-    if (input.value[input.value.length - 1] != EMPTY_SPACE) newValue += " "
+    let newValue = expressionInput.value
+    if (expressionInput.value[expressionInput.value.length - 1] != EMPTY_SPACE) newValue += " "
     newValue += element.value + " "
-    input.value = newValue
+    expressionInput.value = newValue
 }
 
 const clearCalculator = () => {
-    input.value = ""
+    expressionInput.value = ""
     resultElement.textContent = ""
 }
 
 const erase = () => {
-    let expression = input.value.trim()
-    input.value = expression.substring(0, expression.length - 1)
+    let expression = expressionInput.value.trim()
+    expressionInput.value = expression.substring(0, expression.length - 1)
 }
 
 const calculate = () => {
     try {
-        let expression = input.value.trim()
+        let decimalPrecision = Number.parseInt(decimanPrecisionInput.value)
+        let expression = expressionInput.value.trim()
         expression = PreProcessor.processExpression(expression)
-        let result = calculateResult(expression)
+        let result = calculateResult(expression, decimalPrecision)
         resultElement.textContent = result
     } catch (error) {
         alert(error.message)

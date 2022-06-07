@@ -7,7 +7,7 @@ import PrimaryBinaryOperator from "./operations/primary-binary-operator.js";
 
 const PLACE_HOLDER = "PLACE_HOLDER"
 
-const calculateResult = (expression) => {
+const calculateResult = (expression, decimalPrecision) => {
     let results = []
     let expressions = []
     expressions.push(expression)
@@ -25,7 +25,7 @@ const calculateResult = (expression) => {
     }
 
     let finalResult = results.pop()
-    return finalResult
+    return finalResult.toFixed(decimalPrecision)
 }
 
 const containsPlaceholder = (expression) => {

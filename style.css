@@ -1,5 +1,5 @@
 :root {
-  --ui-font-size: 36px;
+  --ui-font-size: 32px;
   --primary-heading-font-size: calc(var(--ui-font-size) * 2.3);
   --input-padding: 0.5em 1em;
   --major-section-margin-size: 40px;
@@ -55,6 +55,7 @@ button {
 
 .result-area {
   font-size: var(--ui-font-size);
+  margin-bottom: var(--major-section-margin-size);
 }
 
 .expression-area {
@@ -77,6 +78,14 @@ button {
   margin: 10px;
 }
 
+.expression-area-element {
+  margin-top: 10px;
+}
+
 #result {
   font-style: normal;
+}
+
+fieldset {
+  border: none;
 }

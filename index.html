@@ -15,12 +15,17 @@
   </h1>
 
   <!-- Input area -->
-  <section class="expression-area">
+  <form class="expression-area">
     <input type="text" class="expression-area-element" id="input-field">
-    <button class="expression-area-element" id="calculate-btn" value="=">=</button>
-    <button class="expression-area-element" id="clear-btn" value="Clear">Clear</button>
-    <button class="expression-area-element" id="erase-btn" value="Erase">Erase</button>
-  </section>
+    <button type="button" class="expression-area-element" id="calculate-btn" value="=">=</button>
+    <button type="reset" class="expression-area-element" id="clear-btn" value="Clear">Clear</button>
+    <button type="button" class="expression-area-element" id="erase-btn" value="Erase">Erase</button>
+   
+    <fieldset>
+      Decimal Precision: <input class="expression-area-element" id="decimal-precision" type="number" value="1" min="0" max="10">
+    </fieldset>
+    
+  </form>
 
   <!-- Result area -->
   <section class="result-area">
