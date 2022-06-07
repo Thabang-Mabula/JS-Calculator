@@ -1,8 +1,4 @@
-import Stack from "./data-structures/stack.js";
-import Deque from "./data-structures/deque.js";
-import Addition from "./operations/addition.js";
 import { OperationEnum } from "./operations/operation-enum.js";
-import Subtraction from "./operations/subtraction.js";
 import UnitaryOperator from "./operations/unitary-operator.js";
 import { OperationsLookupFactory } from "./operations/operations-lookup-factory.js";
 import { NumberValidator } from "./common/validators/number-validator.js";
@@ -13,11 +9,11 @@ import PrimaryBinaryOperator from "./operations/primary-binary-operator.js";
 const PLACE_HOLDER = "PLACE_HOLDER"
 
 const calculateResult = (expression) => {
-    let results = new Stack()
-    let expressions = new Stack()
+    let results = []
+    let expressions = []
     expressions.push(expression)
 
-    while (!expressions.isEmpty()) {
+    while (expressions.length > 0) {
         let currentExpression = expressions.pop()
         if (containsSubExpression(currentExpression)) {
             processCompoundExpression(currentExpression, expressions)
@@ -84,8 +80,8 @@ const evaluateExpression = (expression) => {
 
     const expressionArray = expression.split(" ")
 
-    let numbers = new Deque();
-    let operations = new Deque();
+    let numbers = [];
+    let operations = [];
 
     for (let i = 0; i < expressionArray.length; i++) {
         let stringElement = expressionArray[i];
@@ -99,37 +95,37 @@ const evaluateExpression = (expression) => {
         }
     }
 
-    result = numbers.popFront();
-    while (!numbers.isEmpty()) {
-        let operation = operations.popFront();
-        let nextOperand = numbers.popFront();
+    result = numbers.shift();
+    while (numbers.length > 0) {
+        let operation = operations.shift();
+        let nextOperand = numbers.shift();
         result = operation.execute(result, nextOperand);
     }
 
     return result;
 }
 
-const processNumber = (numbericalString, numberQueue, operationQueue,) => {
+const processNumber = (numbericalString, numbers, operations) => {
     let number = Number(numbericalString)
-    if (!operationQueue.isEmpty()) {
-        let recentOperation = operationQueue.popBack()
+    if (operations.length > 0) {
+        let recentOperation = operations.pop()
         if (recentOperation instanceof UnitaryOperator) {
             number = recentOperation.execute(number)
         }
         else if (recentOperation instanceof PrimaryBinaryOperator) {
-            operationQueue.pushBack(recentOperation)
+            operations.push(recentOperation)
         } else {
-            let recentNumber = numberQueue.popBack()
+            let recentNumber = numbers.pop()
             number = recentOperation.execute(recentNumber, number)
         }
     }
 
-    numberQueue.pushBack(number)
+    numbers.push(number)
 }
 
-const processOperation = (operationString, operationQueue) => {
+const processOperation = (operationString, operations) => {
     let operation = OperationsLookupFactory.findOperationImplementation(operationString)
-    operationQueue.pushBack(operation)
+    operations.push(operation)
 }
 
 export { calculateResult }
