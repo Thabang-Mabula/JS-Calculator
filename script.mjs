@@ -2,9 +2,10 @@ import { calculateResult } from "./calculator.mjs";
 import { OperationEnum } from "./operations/operation-enum.mjs";
 import { PreProcessor } from "./pre-processing/pre-processor.mjs";
 
-const input = document.getElementById("input-field");
-const resultElement = document.getElementById("result-span");
+const input = document.getElementById("input-field")
+const resultElement = document.getElementById("result")
 const EMPTY_SPACE = " "
+
 const addNumberToInput = (event) => {
     let element = event.target
     input.value = input.value + element.value

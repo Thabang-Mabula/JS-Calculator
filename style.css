@@ -1,73 +1,81 @@
+:root {
+  --ui-font-size: 36px;
+  --primary-heading-font-size: calc(var(--ui-font-size) * 2.3);
+  --input-padding: 0.5em 1em;
+  --major-section-margin-size: 40px;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0 2rem;
+  font-size: px;
 }
 
-
-.input-area {
-  margin: 2.5em 0;
-}
-
-.tg {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.tg td {
-  border: none;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-
-.tg th {
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
-}
-
-.tg .tg-0lax {
-  text-align: left;
-  vertical-align: top
-}
-
-button {
-  padding: 0.5em 1em;
-}
-
-.keypad-btn {
-  min-width: 3em;
-}
-
-.operator-btn {
-  min-width: 3.5em;
+h1 {
+  font-size: var(--primary-heading-font-size);
 }
 
 input {
-  padding: 0.5em 1em;
+  padding: var(--input-padding);
+  font-size: var(--ui-font-size);
+}
+
+input[type=button] {
+  font-size: var(--ui-font-size);
 }
 
 .operator-pad {
   display: inline-block;
 }
 
-.keypad {
-  display: inline-block;
+section.input-area {
+  margin-top: var(--major-section-margin-size);
+  display: flex;
+  width: 50vw;
+}
+
+section.keypad {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
   margin-right: 2em;
+  flex: 2 30vw;
 }
 
-#result-span {
-  display: inline-block;
+section.operator-pad {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 2em;
+  flex: 1 20vw;
 }
 
-.result-area {
-  margin: 1em 0;
+
+section.result-area {
+  font-size: var(--ui-font-size);
+}
+
+section.expression-area {
+  font-size: var(--ui-font-size);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 50vw;
+  margin-bottom: var(--major-section-margin-size);
+}
+
+input.keypad-btn {
+  flex: 1 25%;
+  margin: 10px;
+}
+
+input.operator-btn {
+  flex: 1 40%;
+  margin: 10px;
+}
+
+var#result {
+  font-style: normal;
 }
