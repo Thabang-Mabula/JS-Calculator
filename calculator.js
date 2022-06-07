@@ -67,11 +67,7 @@ const replaceSubExpression = (startingBracketPosition, endingBracketPosition, co
 }
 
 const containsSubExpression = (expression) => {
-    for (let c of expression) {
-        if (c == OperationEnum.OPEN_BRACKET) return true
-    }
-
-    return false
+    return expression.includes(OperationEnum.CLOSING_BRACKET)
 }
 
 const evaluateExpression = (expression) => {
