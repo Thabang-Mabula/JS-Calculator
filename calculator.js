@@ -75,17 +75,15 @@ const evaluateExpression = (expression) => {
     let numbers = [];
     let operations = [];
 
-    for (let i = 0; i < expressionArray.length; i++) {
-        let stringElement = expressionArray[i];
-
-        if (!isNaN(stringElement)) {
-            processNumber(stringElement, numbers, operations)
-        } else if (OperationValidator.isOperation(stringElement)) {
-            processOperation(stringElement, operations)
+    expressionArray.forEach((element) => {
+        if (!isNaN(element)) {
+            processNumber(element, numbers, operations)
+        } else if (OperationValidator.isOperation(element)) {
+            processOperation(element, operations)
         } else {
-            throw new InvalidInputError(`Invalid input '${stringElement}' detected in the calculation`)
+            throw new InvalidInputError(`Invalid input '${element}' detected in the calculation`)
         }
-    }
+    })
 
     result = numbers.shift();
     while (numbers.length > 0) {
