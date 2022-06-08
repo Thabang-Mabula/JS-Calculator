@@ -97,13 +97,14 @@ const evaluateExpression = (expression) => {
 
 const processNumber = (numbericalString, numbers, operations) => {
     let number = Number(numbericalString)
-    if (operations.length > 0) {
+    while (operations.length > 0) {
         let recentOperation = operations.pop()
         if (recentOperation.arity == 1) {
             number = recentOperation.execute(number)
         }
         else if (recentOperation == OperationEnum.ADDITION || recentOperation == OperationEnum.SUBTRACTION) {
             operations.push(recentOperation)
+            break;
         } else {
             let recentNumber = numbers.pop()
             number = recentOperation.execute(recentNumber, number)
@@ -114,9 +115,7 @@ const processNumber = (numbericalString, numbers, operations) => {
 }
 
 const createArrayOfElementsInExpression = (expression) => {
-    return [...expression].filter((character) => {
-        return character != " "
-    })
+    return expression.split(" ")
 }
 
 const processOperation = (operationString, operations) => {
