@@ -70,7 +70,7 @@ const containsSubExpression = (expression) => {
 const evaluateExpression = (expression) => {
     let result = 0;
 
-    const expressionArray = expression.split(" ")
+    const expressionArray = createArrayOfElementsInExpression(expression) 
 
     let numbers = [];
     let operations = [];
@@ -113,6 +113,12 @@ const processNumber = (numbericalString, numbers, operations) => {
     }
 
     numbers.push(number)
+}
+
+const createArrayOfElementsInExpression = (expression) => {
+    return [...expression].filter((character) => {
+        return character != " "
+    })
 }
 
 const processOperation = (operationString, operations) => {
