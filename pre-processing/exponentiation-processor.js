@@ -24,7 +24,7 @@ export default class ExponentiationProcessor extends ExpressionProcessor {
     processExpression(expression) {
         const exponentTerms = [...expression.matchAll(EXPONENTIATION_REGEX)]
         exponentTerms.forEach((exponentTerm) => {
-            expression = expression.replace(exponentTerm, SpecialCharacterEnum.OPEN_BRACKET + " " + exponentTerm + " " + SpecialCharacterEnum.CLOSING_BRACKET)
+            expression = expression.replace(exponentTerm, SpecialCharacterEnum.OPEN_BRACKET.symbol + " " + exponentTerm + " " + SpecialCharacterEnum.CLOSING_BRACKET.symbol)
         })
 
         return expression

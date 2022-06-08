@@ -1,4 +1,5 @@
 import { calculateResult } from "./calculator.js";
+import { ExpressionValidator } from "./common/validators/expression-validator.js";
 import { PreProcessor } from "./pre-processing/pre-processor.js";
 
 const expressionInput = document.getElementById("input-field")
@@ -33,6 +34,7 @@ const calculate = () => {
     try {
         let decimalPrecision = Number.parseInt(decimanPrecisionInput.value)
         let expression = expressionInput.value.trim()
+        ExpressionValidator.validate(expression)
         expression = PreProcessor.processExpression(expression)
         let result = calculateResult(expression, decimalPrecision)
         resultElement.textContent = result

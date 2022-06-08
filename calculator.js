@@ -64,7 +64,7 @@ const replaceSubExpression = (compoundExpression) => {
 }
 
 const containsSubExpression = (expression) => {
-    return expression.includes(SpecialCharacterEnum.CLOSING_BRACKET)
+    return expression.includes(SpecialCharacterEnum.OPEN_BRACKET.symbol) || expression.includes(SpecialCharacterEnum.CLOSING_BRACKET.symbol)
 }
 
 const evaluateExpression = (expression) => {
