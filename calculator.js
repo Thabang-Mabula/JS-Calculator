@@ -1,9 +1,8 @@
 import { OperationEnum } from "./operations/operation-enum.js";
-import UnitaryOperator from "./operations/unitary-operator.js";
-import { OperationsLookupFactory } from "./operations/operations-lookup-factory.js";
 import { OperationValidator } from "./common/validators/operator-validator.js";
 import InvalidInputError from "./common/errors/invalid-input-error.js";
-import PrimaryBinaryOperator from "./operations/primary-binary-operator.js";
+import { SpecialCharacterEnum } from "./operations/special-chatacter-enum.js";
+import { PreProcessor } from "./pre-processing/pre-processor.js";
 
 const PLACE_HOLDER = "PLACE_HOLDER"
 const SUB_EXPRESSION_REGEX = /\(.*\)/g
@@ -65,7 +64,7 @@ const replaceSubExpression = (compoundExpression) => {
 }
 
 const containsSubExpression = (expression) => {
-    return expression.includes(OperationEnum.CLOSING_BRACKET)
+    return expression.includes(SpecialCharacterEnum.CLOSING_BRACKET)
 }
 
 const evaluateExpression = (expression) => {
@@ -102,10 +101,10 @@ const processNumber = (numbericalString, numbers, operations) => {
     let number = Number(numbericalString)
     if (operations.length > 0) {
         let recentOperation = operations.pop()
-        if (recentOperation instanceof UnitaryOperator) {
+        if (recentOperation.arity == 1) {
             number = recentOperation.execute(number)
         }
-        else if (recentOperation instanceof PrimaryBinaryOperator) {
+        else if (recentOperation == OperationEnum.ADDITION || recentOperation == OperationEnum.SUBTRACTION) {
             operations.push(recentOperation)
         } else {
             let recentNumber = numbers.pop()
@@ -117,6 +116,8 @@ const processNumber = (numbericalString, numbers, operations) => {
 }
 
 const processOperation = (operationString, operations) => {
-    let operation = OperationsLookupFactory.findOperationImplementation(operationString)
-    operations.push(operation)
+    for (let operationName in OperationEnum) {
+        let operation = OperationEnum[operationName]
+        if (operation.symbol == operationString) operations.push(operation)
+    }
 }

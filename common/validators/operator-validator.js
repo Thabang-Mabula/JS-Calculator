@@ -11,7 +11,7 @@ export const OperationValidator = {
      */
     isOperation: (stringInput) => {
         for (let operation in OperationEnum) {
-            if (OperationEnum[operation] == stringInput) return true
+            if (OperationEnum[operation].symbol == stringInput) return true
         }
 
         return false

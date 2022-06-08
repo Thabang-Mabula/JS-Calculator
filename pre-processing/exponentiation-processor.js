@@ -1,4 +1,5 @@
 import ExpressionProcessor from "./expression-processor.js"
+import { SpecialCharacterEnum } from "../operations/special-chatacter-enum.js";
 import { OperationEnum } from "../operations/operation-enum.js";
 
 const EXPONENTIATION_REGEX = /\d\s\^\s\d/g
@@ -23,7 +24,7 @@ export default class ExponentiationProcessor extends ExpressionProcessor {
     processExpression(expression) {
         const exponentTerms = [...expression.matchAll(EXPONENTIATION_REGEX)]
         exponentTerms.forEach((exponentTerm) => {
-            expression = expression.replace(exponentTerm, OperationEnum.OPEN_BRACKET + " " + exponentTerm + " " + OperationEnum.CLOSING_BRACKET)
+            expression = expression.replace(exponentTerm, SpecialCharacterEnum.OPEN_BRACKET + " " + exponentTerm + " " + SpecialCharacterEnum.CLOSING_BRACKET)
         })
 
         return expression
@@ -35,6 +36,6 @@ export default class ExponentiationProcessor extends ExpressionProcessor {
      * @returns True if the given expression contains an exponent symbol. False otherwise.
      */
     isProcessingRequired(expression) {
-        return expression.includes(OperationEnum.EXPONENTIATION)
+        return expression.includes(OperationEnum.EXPONENTIATION.symbol)
     }
 }
