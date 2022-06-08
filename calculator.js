@@ -8,7 +8,7 @@ import PrimaryBinaryOperator from "./operations/primary-binary-operator.js";
 const PLACE_HOLDER = "PLACE_HOLDER"
 const SUB_EXPRESSION_REGEX = /\(.*\)/g
 
-const calculateResult = (expression, decimalPrecision) => {
+export const calculateResult = (expression, decimalPrecision) => {
     let results = []
     let expressions = []
     expressions.push(expression)
@@ -120,6 +120,3 @@ const processOperation = (operationString, operations) => {
     let operation = OperationsLookupFactory.findOperationImplementation(operationString)
     operations.push(operation)
 }
-
-export { calculateResult }
-export * from './script.js'
