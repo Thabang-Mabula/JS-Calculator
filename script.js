@@ -62,7 +62,7 @@ clearButton.addEventListener('click', clearCalculator)
 const backspaceButton = document.getElementById("erase-btn")
 backspaceButton.addEventListener('click', erase)
 
-
+decimanPrecisionInput.addEventListener('change', calculate)
 
 
 

@@ -6,6 +6,7 @@ import InvalidInputError from "./common/errors/invalid-input-error.js";
 import PrimaryBinaryOperator from "./operations/primary-binary-operator.js";
 
 const PLACE_HOLDER = "PLACE_HOLDER"
+const SUB_EXPRESSION_REGEX = /\(.*\)/g
 
 const calculateResult = (expression, decimalPrecision) => {
     let results = []
@@ -39,31 +40,28 @@ const processExpressionWithPlaceHolder = (expression, expressions, results) => {
 }
 
 const processCompoundExpression = (exp, expressions) => {
-    let startIndex = exp.indexOf(OperationEnum.OPEN_BRACKET)
-    let endIndex = 0
-    for (let i = startIndex + 1; i < exp.length; i++) {
-        let currentChar = exp.charAt(i)
-        if (currentChar == OperationEnum.OPEN_BRACKET) {
-            i = exp.indexOf(OperationEnum.CLOSING_BRACKET, i)
-        } else if (currentChar == OperationEnum.CLOSING_BRACKET) {
-            endIndex = i
-        }
-    }
-
-    let subExpression = extractSubExpresssion(startIndex, endIndex, exp)
-    let formattedExpression = replaceSubExpression(startIndex, endIndex, exp)
+    
+    let subExpression = extractSubExpresssion(exp)
+    let formattedExpression = replaceSubExpression(exp)
 
     expressions.push(formattedExpression.trim())
     expressions.push(subExpression.trim())
+    
 }
 
-const extractSubExpresssion = (startingBracketPosition, endingBracketPosition, compoundExpression) => {
-    return compoundExpression.substring(startingBracketPosition + 1, endingBracketPosition)
+const findPrimarySubExpression = (compoundExpression) => {
+    return compoundExpression.match(SUB_EXPRESSION_REGEX).shift()
+}
+const extractSubExpresssion = (compoundExpression) => {
+    let primarySubExpression = findPrimarySubExpression(compoundExpression)
+    primarySubExpression = primarySubExpression.substring(1, primarySubExpression.length - 1)
+    return primarySubExpression
+    
 }
 
-const replaceSubExpression = (startingBracketPosition, endingBracketPosition, compoundExpression) => {
-    let subExpressionWithBrackets = compoundExpression.substring(startingBracketPosition, endingBracketPosition + 1)
-    return compoundExpression.replace(subExpressionWithBrackets, PLACE_HOLDER)
+const replaceSubExpression = (compoundExpression) => {
+    let primarySubExpression = findPrimarySubExpression(compoundExpression)
+    return compoundExpression.replace(primarySubExpression, PLACE_HOLDER)
 }
 
 const containsSubExpression = (expression) => {
