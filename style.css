@@ -3,19 +3,54 @@
   --primary-heading-font-size: calc(var(--ui-font-size) * 2.3);
   --input-padding: 0.5em 1em;
   --major-section-margin-size: 40px;
+  --black-color: black;
+  --white-color: white;
+  --main-grid-column: 1 / 4
+}
+
+@media only screen and (orientation: landscape) {
+  :root {
+    --grid-template-columns: 1fr;
+    --main-grid-column: 1
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --grid-template-columns: 1fr 3fr 1fr;
+    --main-grid-column: 2
+  }
 }
 
 html {
   font-size: 1vw;
 }
+
+
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0 2rem;
-  font-size: px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: var(--grid-template-columns);
+  background-color: var(--black-color);
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
+
+main {
+  grid-column: var(--main-grid-column);
+  background-color: var(--white-color);
+  padding: 2rem;
+}
+
 
 h1 {
   font-size: var(--primary-heading-font-size);
+  text-align: center;
 }
 
 input {
@@ -35,7 +70,6 @@ button {
 .input-area {
   margin-top: var(--major-section-margin-size);
   display: flex;
-  width: 50vw;
 }
 
 .keypad {
@@ -44,7 +78,6 @@ button {
   align-items: center;
   justify-content: space-around;
   margin-right: 2em;
-  flex: 2 30vw;
 }
 
 .operator-pad {
@@ -52,8 +85,6 @@ button {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
-  margin-right: 2em;
-  flex: 1 20vw;
 }
 
 
@@ -68,7 +99,6 @@ button {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
-  width: 50vw;
   margin-bottom: var(--major-section-margin-size);
 }
 

@@ -10,69 +10,72 @@
 </head>
 
 <body>
-  <h1>
-    Calculator
-  </h1>
+  <main>
+    <h1>
+      Calculator
+    </h1>
 
-  <!-- Input area -->
-  <form class="expression-area">
-    <input type="text" class="expression-area-element" id="input-field">
-    <button type="button" class="expression-area-element" id="calculate-btn" value="=">=</button>
-    <button type="reset" class="expression-area-element" id="clear-btn" value="Clear">Clear</button>
-    <button type="button" class="expression-area-element" id="erase-btn" value="Erase">Erase</button>
-   
-    <fieldset id="decimal-precision-fieldset">
-      Decimal Precision: <input class="expression-area-element" id="decimal-precision" type="number" value="1" min="0" max="10">
-    </fieldset>
-    
-  </form>
+    <!-- Input area -->
+    <form class="expression-area">
+      <input type="text" class="expression-area-element" id="input-field">
+      <button type="button" class="expression-area-element" id="calculate-btn" value="=">=</button>
+      <button type="reset" class="expression-area-element" id="clear-btn" value="Clear">Clear</button>
+      <button type="button" class="expression-area-element" id="erase-btn" value="Erase">Erase</button>
 
-  <!-- Result area -->
-  <section class="result-area">
-    <strong> Answer: </strong>
-    <var id="result"></var>
-  </section>
+      <fieldset id="decimal-precision-fieldset">
+        Decimal Precision: <input class="expression-area-element" id="decimal-precision" type="number" value="1" min="0"
+          max="10">
+      </fieldset>
 
-  <!-- Input area -->
-  <section class="input-area">
+    </form>
 
-    <!-- Keypad -->
-    <section class="keypad">
-      <button class="keypad-btn" value="7">7</button>
-      <button class="keypad-btn" value="8">8</button>
-      <button class="keypad-btn" value="9">9</button>
-
-      <button class="keypad-btn" value="4">4</button>
-      <button class="keypad-btn" value="5">5</button>
-      <button class="keypad-btn" value="6">6</button>
-
-      <button class="keypad-btn" value="1">1</button>
-      <button class="keypad-btn" value="2">2</button>
-      <button class="keypad-btn" value="3">3</button>
-
-      <button class="keypad-btn" value="-">-</button>
-      <button class="keypad-btn" value="0">0</button>
-      <button class="keypad-btn" value=".">.</button>
+    <!-- Result area -->
+    <section class="result-area">
+      <strong> Answer: </strong>
+      <var id="result"></var>
     </section>
 
-    <!-- Operator Pad -->
-    <section class="operator-pad">
-      <button class="operator-btn" value="+">+</button>
-      <button class="operator-btn" value="(">(</button>
+    <!-- Input area -->
+    <section class="input-area">
 
-      <button class="operator-btn" value="-">-</button>
-      <button class="operator-btn" value=")">)</button>
+      <!-- Keypad -->
+      <section class="keypad">
+        <button class="keypad-btn" value="7">7</button>
+        <button class="keypad-btn" value="8">8</button>
+        <button class="keypad-btn" value="9">9</button>
 
-      <button class="operator-btn" value="&times;">&times;</button>
-      <button class="operator-btn" value="^">^</button>
+        <button class="keypad-btn" value="4">4</button>
+        <button class="keypad-btn" value="5">5</button>
+        <button class="keypad-btn" value="6">6</button>
 
-      <button class="operator-btn" value="&#247;">&#247;</button>
-      <button class="operator-btn" value="√">√</button>
+        <button class="keypad-btn" value="1">1</button>
+        <button class="keypad-btn" value="2">2</button>
+        <button class="keypad-btn" value="3">3</button>
+
+        <button class="keypad-btn" value="-">-</button>
+        <button class="keypad-btn" value="0">0</button>
+        <button class="keypad-btn" value=".">.</button>
+      </section>
+
+      <!-- Operator Pad -->
+      <section class="operator-pad">
+        <button class="operator-btn" value="+">+</button>
+        <button class="operator-btn" value="(">(</button>
+
+        <button class="operator-btn" value="-">-</button>
+        <button class="operator-btn" value=")">)</button>
+
+        <button class="operator-btn" value="&times;">&times;</button>
+        <button class="operator-btn" value="^">^</button>
+
+        <button class="operator-btn" value="&#247;">&#247;</button>
+        <button class="operator-btn" value="√">√</button>
+      </section>
+
     </section>
 
-  </section>
-
-  <script type="module" src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
+  </main>
 </body>
 
 </html>
