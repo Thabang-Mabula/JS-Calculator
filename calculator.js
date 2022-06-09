@@ -7,6 +7,12 @@ import { PreProcessor } from "./pre-processing/pre-processor.js";
 const PLACE_HOLDER = "PLACE_HOLDER"
 const SUB_EXPRESSION_REGEX = /\(.*\)/g
 
+/**
+ * Calculates the evaluated result of an expression to a given precision
+ * @param {String} expression Mathematical expression
+ * @param {Number} decimalPrecision Number of decimals
+ * @returns {Number} Evaluated result of the expression
+ */
 export const calculateResult = (expression, decimalPrecision) => {
     let results = []
     let expressions = []
@@ -38,10 +44,15 @@ const processExpressionWithPlaceHolder = (expression, expressions, results) => {
     expressions.push(expression)
 }
 
-const processCompoundExpression = (exp, expressions) => {
+/**
+ * Processes expressions that contain one or more sub-expressions (i.e. an expression in parentheses)
+ * @param {String} expression Compound expression (i.e. one or more sub-expressions)
+ * @param {Array} expressions Collection of expressions to be evaluated
+ */
+const processCompoundExpression = (expression, expressions) => {
     
-    let subExpression = extractSubExpresssion(exp)
-    let formattedExpression = replaceSubExpression(exp)
+    let subExpression = extractSubExpresssion(expression)
+    let formattedExpression = replaceSubExpression(expression)
 
     expressions.push(formattedExpression.trim())
     expressions.push(subExpression.trim())
@@ -63,10 +74,20 @@ const replaceSubExpression = (compoundExpression) => {
     return compoundExpression.replace(primarySubExpression, PLACE_HOLDER)
 }
 
+/**
+ * Checks whether an expression contains a sub-expression (i.e. an expression in parentheses)
+ * @param {String} expression Mathematical expression
+ * @returns {Boolean} True if the expression contains a sub-expression. False otherwise
+ */
 const containsSubExpression = (expression) => {
     return expression.includes(SpecialCharacterEnum.OPEN_BRACKET.symbol) || expression.includes(SpecialCharacterEnum.CLOSING_BRACKET.symbol)
 }
 
+/**
+ * Evaluates an expression that contains no sub-expressions (i.e. expressions in parentheses)
+ * @param {String} expression Mathematical expression
+ * @returns Evaluated result of the expression
+ */
 const evaluateExpression = (expression) => {
     let result = 0;
 
