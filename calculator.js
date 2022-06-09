@@ -34,10 +34,24 @@ export const calculateResult = (expression, decimalPrecision) => {
     return finalResult.toFixed(decimalPrecision)
 }
 
+/**
+ * Checks whether an expression contains a place-holder that serves
+ * as a variable that represents the evaluated value of a sub-expression
+ * @param {String} expression Mathematical expression
+ * @returns True if it contains a place holder variable. False otherwise
+ */
 const containsPlaceholder = (expression) => {
     return expression.includes(PLACE_HOLDER)
 }
 
+/**
+ * Process an expression that contains a place-holder that serves
+ * as a variable that represents the evaluated value of a sub-expression.
+ * 
+ * @param {String} expression Mathematical expression with the place-holder variable
+ * @param {Array} expressions Collection of expressions to be evaluated
+ * @param {Array} results Collection of results from evaluated expressions
+ */
 const processExpressionWithPlaceHolder = (expression, expressions, results) => {
     let recentResult = results.pop()
     expression = expression.replace(PLACE_HOLDER, recentResult)
