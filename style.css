@@ -86,6 +86,8 @@ button {
   font-style: normal;
 }
 
-fieldset {
+#decimal-precision-fieldset {
   border: none;
+  align-self: flex-start;
+  flex: 1;
 }
