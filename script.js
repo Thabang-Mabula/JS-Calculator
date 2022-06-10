@@ -9,31 +9,31 @@ const EMPTY_SPACE = " "
 
 const addNumberToInput = (event) => {
     let element = event.target
-    expressionInput.textContent = expressionInput.textContent + element.value
+    expressionInput.value = expressionInput.value + element.value
 }
 
 const addOperatorToInput = (event) => {
     let element = event.target
-    let newValue = expressionInput.textContent
-    if (expressionInput.textContent[expressionInput.textContent.length - 1] != EMPTY_SPACE) newValue += " "
+    let newValue = expressionInput.value
+    if (expressionInput.value[expressionInput.value.length - 1] != EMPTY_SPACE) newValue += " "
     newValue += element.value + " "
-    expressionInput.textContent = newValue
+    expressionInput.value = newValue
 }
 
 const clearCalculator = () => {
-    expressionInput.textContent = ""
+    expressionInput.value = ""
     resultElement.textContent = ""
 }
 
 const erase = () => {
-    let expression = expressionInput.textContent.trim()
-    expressionInput.textContent = expression.substring(0, expression.length - 1)
+    let expression = expressionInput.value.trim()
+    expressionInput.value = expression.substring(0, expression.length - 1)
 }
 
 const calculate = () => {
     try {
         let decimalPrecision = Number.parseInt(decimanPrecisionInput.value)
-        let expression = expressionInput.textContent.trim()
+        let expression = expressionInput.value.trim()
         ExpressionValidator.validate(expression)
         expression = PreProcessor.processExpression(expression)
         let result = calculateResult(expression, decimalPrecision)
