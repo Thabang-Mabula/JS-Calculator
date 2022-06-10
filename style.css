@@ -11,8 +11,11 @@
   --grid-template-columns-main: repeat(3, 1fr);
   --global-font-size: 16px;
 
+  --border-radius: 10px;
+
   /* GRID */
-  --grid-template-rows-main: 15vh repeat(8, 10vh) ;
+  --grid-template-rows-main: 15vh repeat(8, 6vh) ;
+  --grid-row-gap-main: 2vh;
 
   --header-grid-column: 1 / 4;
   --header-grid-row: 1;
@@ -33,7 +36,7 @@
   --input-pad-selection-fieldset-row: 5; 
 
   --keypad-grid-column: 1 / 4;
-  --keypad-grid-row: 6 / 9;
+  --keypad-grid-row: 6 / 10;
 
   --operator-grid-column: 3 ;
   --operator-grid-row: 5 / 9;
@@ -85,7 +88,7 @@ strong.app-name {
   
   grid-column: var(--calculator-screen-grid-column);
   grid-row: var(--calculator-screen-grid-row);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   background-color: var(--black-color);
   padding: 1rem;
   display: grid;
@@ -98,6 +101,7 @@ main {
   display: grid;
   grid-template-columns: var(--grid-template-columns-main);
   grid-template-rows: var(--grid-template-rows-main);
+  grid-row-gap: var(--grid-row-gap-main);
   height: 100vh;
 }
 
@@ -114,14 +118,14 @@ h1 {
 }
 
 input {
-  padding: var(--input-padding);
-  font-size: var(--ui-font-size);
+  /* padding: var(--input-padding);
+  font-size: var(--ui-font-size); */
 }
 
 button {
   padding: var(--input-padding);
   font-size: var(--ui-font-size);
-  border-radius: 10px;
+  border-radius: var(--border-radius)
 }
 
 .operator-pad {
@@ -168,16 +172,19 @@ button {
 
 .keypad-btn {
   /* margin: 10px; */
+  background-color: var(--grey-color);
 }
 
 .operator-btn {
-  /* margin: 10px; */
+  background-color: var(--dark-grey-color);
+  color: var(--white-color);
 }
 
 .expression-area-btn {
   width: 90%;
   align-self: center;
   justify-self: center;
+  padding: 0.2em;
 }
 
 #expression {
@@ -198,10 +205,19 @@ button {
   border: none;
   grid-column: var(--decimal-precision-grid-column);
   grid-row: var(--decimal-precision-grid-row);
+  font-size: var(--ui-font-size);
+}
+
+#decimal-precision {
+  font-size: var(--ui-font-size);
+  border-radius: var(--border-radius);
+  padding-left: 1em;
 }
 
 #calculate-btn {
-  grid-column: 4 / 6
+  grid-column: 4 / 6;
+  background-color: var(--black-color);
+  color: var(--grey-color);
 }
 
 
@@ -209,7 +225,7 @@ button {
 /* toggle in label designing */
 .toggle {
   position : relative ;
-  display : inline-block;
+  /* display : inline-block; */
   width : 3rem;
   height : 1rem;
   background-color: var(--grey-color);
@@ -250,5 +266,16 @@ button {
 
 #input-pad-selection-fieldset {
   grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  border: none;
 
+}
+
+.input-pad-selection-element {
+  align-content: center;
+  justify-self: center;
+  font-size: var(--ui-font-size);
+  margin: 0;
+  padding: 0;
 }
