@@ -2,38 +2,38 @@ import { calculateResult } from "./calculator.js";
 import { ExpressionValidator } from "./common/validators/expression-validator.js";
 import { PreProcessor } from "./pre-processing/pre-processor.js";
 
-const expressionInput = document.getElementById("input-field")
+const expressionInput = document.getElementById("expression")
 const decimanPrecisionInput = document.getElementById("decimal-precision")
 const resultElement = document.getElementById("result")
 const EMPTY_SPACE = " "
 
 const addNumberToInput = (event) => {
     let element = event.target
-    expressionInput.value = expressionInput.value + element.value
+    expressionInput.textContent = expressionInput.textContent + element.value
 }
 
 const addOperatorToInput = (event) => {
     let element = event.target
-    let newValue = expressionInput.value
-    if (expressionInput.value[expressionInput.value.length - 1] != EMPTY_SPACE) newValue += " "
+    let newValue = expressionInput.textContent
+    if (expressionInput.textContent[expressionInput.textContent.length - 1] != EMPTY_SPACE) newValue += " "
     newValue += element.value + " "
-    expressionInput.value = newValue
+    expressionInput.textContent = newValue
 }
 
 const clearCalculator = () => {
-    expressionInput.value = ""
+    expressionInput.textContent = ""
     resultElement.textContent = ""
 }
 
 const erase = () => {
-    let expression = expressionInput.value.trim()
-    expressionInput.value = expression.substring(0, expression.length - 1)
+    let expression = expressionInput.textContent.trim()
+    expressionInput.textContent = expression.substring(0, expression.length - 1)
 }
 
 const calculate = () => {
     try {
         let decimalPrecision = Number.parseInt(decimanPrecisionInput.value)
-        let expression = expressionInput.value.trim()
+        let expression = expressionInput.textContent.trim()
         ExpressionValidator.validate(expression)
         expression = PreProcessor.processExpression(expression)
         let result = calculateResult(expression, decimalPrecision)

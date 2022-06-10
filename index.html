@@ -10,67 +10,70 @@
 </head>
 
 <body>
-  <main>
-    <h1>
+  <nav>
+    <strong class="app-name">
       Calculator
-    </h1>
+    </strong>
+  </nav>
 
-    <!-- Input area -->
-    <form class="expression-area">
-      <input type="text" class="expression-area-element" id="input-field">
-      <button type="button" class="expression-area-element" id="calculate-btn" value="=">=</button>
-      <button type="reset" class="expression-area-element" id="clear-btn" value="Clear">Clear</button>
-      <button type="button" class="expression-area-element" id="erase-btn" value="Erase">Erase</button>
+  <main>
 
-      <fieldset id="decimal-precision-fieldset">
-        Decimal Precision: <input class="expression-area-element" id="decimal-precision" type="number" value="1" min="0"
-          max="10">
-      </fieldset>
+    <section class="calculator-screen">
+      <var id="expression"></var>
 
+      <var var id="result"></var>
+
+    </section>
+    <!-- Expression area -->
+    <form class="expression-control-area">
+
+      <button type="reset" class="expression-area-btn" id="clear-btn" value="Clear">Clear</button>
+      <button type="button" class="expression-area-btn" id="erase-btn" value="Erase">Erase</button>
     </form>
 
-    <!-- Result area -->
-    <section class="result-area">
-      <strong> Answer: </strong>
-      <var id="result"></var>
-    </section>
-
-    <!-- Input area -->
-    <section class="input-area">
-
-      <!-- Keypad -->
+    <fieldset id="decimal-precision-fieldset">
+      <strong> Decimal Precision: </strong>
+      <input class="expression-area-element" id="decimal-precision" type="number" value="1" min="0" max="10">
+    </fieldset>
+<!-- 
+    <fieldset id="input-pad-selection-fieldset">
+      <input type="checkbox" id="switch" class="checkbox" />
+      Basic <br /> brKeypad
+      <label for="switch" class="toggle">
+      </label>
+      Advanced <br /> Operators
       <section class="keypad">
-        <button class="keypad-btn" value="7">7</button>
-        <button class="keypad-btn" value="8">8</button>
-        <button class="keypad-btn" value="9">9</button>
+    </fieldset> -->
 
-        <button class="keypad-btn" value="4">4</button>
-        <button class="keypad-btn" value="5">5</button>
-        <button class="keypad-btn" value="6">6</button>
 
-        <button class="keypad-btn" value="1">1</button>
-        <button class="keypad-btn" value="2">2</button>
-        <button class="keypad-btn" value="3">3</button>
+    <section class="keypad">
+      <button class="keypad-btn" value="7">7</button>
+      <button class="keypad-btn" value="8">8</button>
+      <button class="keypad-btn" value="9">9</button>
+      <button class="operator-btn" value="(">(</button>
+      <button class="operator-btn" value=")">)</button>
 
-        <button class="keypad-btn" value="-">-</button>
-        <button class="keypad-btn" value="0">0</button>
-        <button class="keypad-btn" value=".">.</button>
-      </section>
 
-      <!-- Operator Pad -->
-      <section class="operator-pad">
-        <button class="operator-btn" value="+">+</button>
-        <button class="operator-btn" value="(">(</button>
 
-        <button class="operator-btn" value="-">-</button>
-        <button class="operator-btn" value=")">)</button>
+      <button class="keypad-btn" value="4">4</button>
+      <button class="keypad-btn" value="5">5</button>
+      <button class="keypad-btn" value="6">6</button>
+      <button class="operator-btn" value="&times;">&times;</button>
+      <button class="operator-btn" value="&#247;">&#247;</button>
 
-        <button class="operator-btn" value="&times;">&times;</button>
-        <button class="operator-btn" value="^">^</button>
 
-        <button class="operator-btn" value="&#247;">&#247;</button>
-        <button class="operator-btn" value="√">√</button>
-      </section>
+
+      <button class="keypad-btn" value="1">1</button>
+      <button class="keypad-btn" value="2">2</button>
+      <button class="keypad-btn" value="3">3</button>
+      <button class="operator-btn" value="+">+</button>
+      <button class="operator-btn" value="-">-</button>
+
+
+      <button class="keypad-btn" value="-">NEG</button>
+      <button class="keypad-btn" value="0">0</button>
+      <button class="keypad-btn" value=".">.</button>
+      <button type="button" id="calculate-btn" value="=">=</button>
 
     </section>
 
