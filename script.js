@@ -24,7 +24,7 @@ const addOperatorToInput = (event) => {
 
 const clearCalculator = () => {
     expressionInput.value = ""
-    resultElement.textContent = ""
+    resultElement.value = ""
 }
 
 const erase = () => {
