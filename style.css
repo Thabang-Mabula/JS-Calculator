@@ -130,7 +130,8 @@ button {
   border-radius: var(--border-radius)
 }
 
-.operator-pad {
+#operator-pad {
+  display: none;
 }
 
 .input-area {
@@ -180,6 +181,10 @@ button {
 .operator-btn {
   background-color: var(--dark-grey-color);
   color: var(--white-color);
+}
+
+button:disabled {
+  text-decoration: line-through;
 }
 
 .expression-area-btn {

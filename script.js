@@ -5,6 +5,8 @@ import { PreProcessor } from "./pre-processing/pre-processor.js";
 const expressionInput = document.getElementById("expression")
 const decimanPrecisionInput = document.getElementById("decimal-precision")
 const resultElement = document.getElementById("result")
+const operatorPad = document.getElementById("operator-pad")
+const numericalKeypad = document.getElementById("numerical-keypad")
 const EMPTY_SPACE = " "
 
 const addNumberToInput = (event) => {
@@ -45,8 +47,32 @@ const calculate = () => {
 
 }
 
-const toggleOperatorPad = () => {
-    
+/**
+ * Toggles the visibility of the numerical keypad and the operator keypad 
+ */
+const toggleKeypads = () => {
+    toggleElementDisplay(operatorPad, "grid")
+    toggleElementDisplay(numericalKeypad, "grid")
+}
+
+/**
+ * Toggle the display of a given element/component between a specified display style/mode
+ * and "none" (i.e. the element is not rendered on the screen)
+ * 
+ * @param {HTMLElement} element Element to toggle
+ * @param {String} componentDefaultDisplayMode Display style of the element when it is rendered on the screen (e.g. "inline", "block", etc.)
+ * @returns {HTMLElement} Element with an altered display style
+ */
+const toggleElementDisplay = (element, componentDefaultDisplayMode) => {
+    let display = window.getComputedStyle(element).display
+    if (display == "none") {
+        display = componentDefaultDisplayMode
+    } else {
+        display = "none"
+    }
+
+    element.style.display = display
+    return element
 }
 
 const keyPadButtons = document.querySelectorAll(".keypad-btn")
@@ -72,6 +98,6 @@ decimanPrecisionInput.addEventListener('change', calculate)
 
 
 const operatorSwitch = document.getElementById("switch")
-operatorSwitch.addEventListener('change', toggleOperatorPad)
+operatorSwitch.addEventListener('change', toggleKeypads)
 
 
