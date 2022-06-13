@@ -39,7 +39,7 @@ const calculate = () => {
         ExpressionValidator.validate(expression)
         expression = PreProcessor.processExpression(expression)
         let result = calculateResult(expression, decimalPrecision)
-        resultElement.textContent = result
+        resultElement.value = result
     } catch (error) {
         alert(error.message)
         console.error(error)
