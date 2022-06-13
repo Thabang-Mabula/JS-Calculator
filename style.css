@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
 :root {
   --ui-font-size: 1.2rem;
   --primary-heading-font-size: calc(var(--ui-font-size) * 2.3);
@@ -67,7 +69,7 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
   padding: 0 2rem;
   display: grid;
   justify-content: center;
@@ -126,14 +128,14 @@ h1 {
 }
 
 input {
-  /* padding: var(--input-padding);
-  font-size: var(--ui-font-size); */
+  font-family: inherit;
 }
 
 button {
   padding: var(--input-padding);
   font-size: var(--ui-font-size);
-  border-radius: var(--border-radius)
+  border-radius: var(--border-radius);
+  font-family: inherit;
 }
 
 #operator-pad {
