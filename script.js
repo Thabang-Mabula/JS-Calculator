@@ -45,6 +45,10 @@ const calculate = () => {
 
 }
 
+const toggleOperatorPad = () => {
+    
+}
+
 const keyPadButtons = document.querySelectorAll(".keypad-btn")
 keyPadButtons.forEach(function (currentBtn) {
     currentBtn.addEventListener('click', addNumberToInput)
@@ -66,5 +70,8 @@ backspaceButton.addEventListener('click', erase)
 
 decimanPrecisionInput.addEventListener('change', calculate)
 
+
+const operatorSwitch = document.getElementById("switch")
+operatorSwitch.addEventListener('change', toggleOperatorPad)
 
 
