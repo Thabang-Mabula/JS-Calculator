@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Calculator</title>
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="./script.js"></script>
 </head>
 
 <body>
@@ -23,7 +24,7 @@
       <input type="number" id="result" readonly>
     </section>
 
-  
+
     <!-- Expression area -->
     <form class="expression-control-area">
 
@@ -43,7 +44,7 @@
       <label for="switch" id="switch" class="toggle input-pad-selection-element">
       </label>
 
-      <p class="input-pad-selection-element"> Operators </p> 
+      <p class="input-pad-selection-element"> Operators </p>
     </fieldset>
 
 
@@ -53,8 +54,6 @@
       <button class="keypad-btn" value="9">9</button>
       <button class="operator-btn" value="(">(</button>
       <button class="operator-btn" value=")">)</button>
-
-
 
       <button class="keypad-btn" value="4">4</button>
       <button class="keypad-btn" value="5">5</button>
@@ -74,8 +73,7 @@
       <button class="keypad-btn" value="-">NEG</button>
       <button class="keypad-btn" value="0">0</button>
       <button class="keypad-btn" value=".">.</button>
-      <button type="button" id="calculate-btn" value="=">=</button>
-
+      <button type="button" class="calculate-btn" value="=">=</button>
     </section>
 
     <section id="operator-pad" class="keypad">
@@ -103,13 +101,72 @@
 
       <button class="operator-btn" value="E" disabled>10<sup><sup>x</sup></button>
       <button class="operator-btn" value="!" disabled><var>n!</var></button>
-      <button class="keypad-btn" value="&gamma;"  disabled>&gamma;</button>
-      <button type="button" id="calculate-btn" value="=">=</button>
+      <button class="keypad-btn" value="&gamma;" disabled>&gamma;</button>
+      <button type="button" class="calculate-btn" value="=">=</button>
 
     </section>
 
-    <script type="module" src="./script.js"></script>
+
+    <section id="combined-keypad">
+      <button class="operator-btn" value="^">^</button>
+      <button class="operator-btn" value="log" disabled>log</button>
+      <button class="keypad-btn" value="&#x3C0;" disabled>&#x3C0;</button>
+      <button class="operator-btn" value="sin" disabled>sin</button>
+      <button class="operator-btn" value="?" disabled>sin<sup>-1</sup></button>
+
+
+      <button class="operator-btn" value="^ 2" disabled><var>x<sup>2</sup></var></button>
+      <button class="operator-btn" value="?" disabled>log<sub>10</sub></button>
+      <button class="keypad-btn" value="e" disabled><var>e</var></button>
+      <button class="operator-btn" value="cos" disabled>cos</button>
+      <button class="operator-btn" value="?" disabled>cos<sup>-1</sup></button>
+
+
+
+      <button class="operator-btn" value="√">√</button>
+      <button class="operator-btn" value="ln" disabled>ln</button>
+      <button class="keypad-btn" value="i" disabled><var>i</var></button>
+      <button class="operator-btn" value="tan" disabled>tan</button>
+      <button class="operator-btn" value="?" disabled>tan<sup>-1</sup></button>
+
+
+      <button class="operator-btn" value="E" disabled>10<sup><sup>x</sup></button>
+      <button class="operator-btn" value="!" disabled><var>n!</var></button>
+      <button class="keypad-btn" value="&gamma;" disabled>&gamma;</button>
+      <button class="operator-btn" value="!" disabled><var>n!</var></button>
+      <button class="keypad-btn" value="&gamma;" disabled>&gamma;</button>
+
+      <button class="keypad-btn" value="7">7</button>
+      <button class="keypad-btn" value="8">8</button>
+      <button class="keypad-btn" value="9">9</button>
+      <button class="operator-btn" value="(">(</button>
+      <button class="operator-btn" value=")">)</button>
+
+      <button class="keypad-btn" value="4">4</button>
+      <button class="keypad-btn" value="5">5</button>
+      <button class="keypad-btn" value="6">6</button>
+      <button class="operator-btn" value="&times;">&times;</button>
+      <button class="operator-btn" value="&#247;">&#247;</button>
+
+
+
+      <button class="keypad-btn" value="1">1</button>
+      <button class="keypad-btn" value="2">2</button>
+      <button class="keypad-btn" value="3">3</button>
+      <button class="operator-btn" value="+">+</button>
+      <button class="operator-btn" value="-">-</button>
+
+
+      <button class="keypad-btn" value="-">NEG</button>
+      <button class="keypad-btn" value="0">0</button>
+      <button class="keypad-btn" value=".">.</button>
+      <button type="button" class="calculate-btn" value="=">=</button>
+    </section>
+
+
   </main>
+
+
 </body>
 
 </html>

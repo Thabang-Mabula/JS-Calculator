@@ -76,17 +76,19 @@ const toggleElementDisplay = (element, componentDefaultDisplayMode) => {
 }
 
 const keyPadButtons = document.querySelectorAll(".keypad-btn")
-keyPadButtons.forEach(function (currentBtn) {
+keyPadButtons.forEach((currentBtn) => {
     currentBtn.addEventListener('click', addNumberToInput)
 })
 
 const operatorButtons = document.querySelectorAll(".operator-btn")
-operatorButtons.forEach(function (currentBtn) {
+operatorButtons.forEach((currentBtn) => {
     currentBtn.addEventListener('click', addOperatorToInput)
 })
 
-const equalsButton = document.getElementById("calculate-btn")
-equalsButton.addEventListener('click', calculate)
+const equalsButtons = document.querySelectorAll(".calculate-btn")
+equalsButtons.forEach((currentBtn) => {
+    currentBtn.addEventListener('click', calculate)
+})
 
 const clearButton = document.getElementById("clear-btn")
 clearButton.addEventListener('click', clearCalculator)

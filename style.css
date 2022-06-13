@@ -16,9 +16,15 @@
   --border-radius: 10px;
 
   --result-font-size: 2rem;
+  --expression-text-input-font-size: 1.2rem;
+
+  --input-pad-switch-display: grid;
+  --operator-pad-display: none;
+  --numerical-keypad-display: grid;
+  --combined-keyad-display: none;
 
   /* GRID */
-  --grid-template-rows-main: 15vh repeat(8, 6vh) ;
+  --grid-template-rows-main: 15vh repeat(8, 6vh);
   --grid-row-gap-main: 2vh;
 
   --header-grid-column: 1 / 4;
@@ -28,7 +34,7 @@
   --calculator-screen-grid-row: 1 / 3;
 
   --expression-control-area-grid-column: 1 / 4;
-  --expression-control-area-grid-row: 2 ;
+  --expression-control-area-grid-row: 3;
 
   --decimal-precision-grid-column: 1 / 4;
   --decimal-precision-grid-row: 4;
@@ -37,18 +43,20 @@
   --result-area-grid-row: 5;
 
   --input-pad-selection-fieldset-column: 1 / 4;
-  --input-pad-selection-fieldset-row: 5; 
+  --input-pad-selection-fieldset-row: 5;
 
   --keypad-grid-column: 1 / 4;
   --keypad-grid-row: 6 / 10;
 
-  --operator-grid-column: 3 ;
+  --operator-grid-column: 3;
   --operator-grid-row: 5 / 9;
+
+  --keypad-gap: 5px;
+  
 }
 
 @media only screen and (orientation: landscape) {
   :root {
-    --grid-template-columns-body: 1fr;
     --main-grid-column: 1;
     --global-font-size: 2vw;
     --result-font-size: 2rem;
@@ -57,10 +65,29 @@
 
 @media (min-width: 768px) {
   :root {
-    --grid-template-columns-body: 1fr 3fr 1fr;
     --main-grid-column: 2;
     --global-font-size: 1vw;
-    --result-font-size: 3rem;
+    --result-font-size: 5rem;
+    --expression-text-input-font-size: 2rem;
+
+    --input-pad-switch-display: none;
+    --operator-pad-display: none;
+    --numerical-keypad-display: none;
+    --combined-keyad-display: grid;
+
+    --grid-template-columns-main: repeat(3, 1.8fr) 6.6fr;
+
+    --calculator-screen-grid-column: 4;
+    --calculator-screen-grid-row: 1 / 8;
+
+    --expression-control-area-grid-column: 4;
+    --expression-control-area-grid-row: 8;
+
+    --decimal-precision-grid-column: 4;
+    --decimal-precision-grid-row: 9;
+
+    --combined-keypad-grid-column: 1 / 4;
+    --combined-keypad-grid-row: 1 / 10;
   }
 }
 
@@ -70,10 +97,7 @@ html {
 
 body {
   font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-  padding: 0 2rem;
   display: grid;
-  justify-content: center;
-  grid-template-columns: var(--grid-template-columns-body);
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -83,7 +107,11 @@ body {
 nav {
   background-color: var(--grey-color);
   grid-column: 1 / 4;
-  padding: 1.5rem 1rem
+  padding: 1.5rem 1rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 strong.app-name {
@@ -91,7 +119,7 @@ strong.app-name {
 }
 
 .calculator-screen {
-  
+
   grid-column: var(--calculator-screen-grid-column);
   grid-row: var(--calculator-screen-grid-row);
   border-radius: var(--border-radius);
@@ -104,15 +132,18 @@ strong.app-name {
   grid-template-columns: 2fr 8fr;
 }
 
+
 main {
-  grid-column: var(--main-grid-column);
   background-color: var(--white-color);
   padding: 2rem;
   display: grid;
   grid-template-columns: var(--grid-template-columns-main);
   grid-template-rows: var(--grid-template-rows-main);
   grid-row-gap: var(--grid-row-gap-main);
-  height: 100vh;
+  width: 100vw;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 header {
@@ -122,7 +153,7 @@ header {
 
 
 h1 {
-  
+
   font-size: var(--primary-heading-font-size);
   text-align: center;
 }
@@ -139,7 +170,19 @@ button {
 }
 
 #operator-pad {
-  display: none;
+  display: var(--operator-pad-display);
+}
+
+#numerical-keypad {
+  display: var(--numerical-keypad-display);
+}
+
+#combined-keypad {
+  display: var(--combined-keyad-display);
+  grid-column: var(--combined-keypad-grid-column);
+  grid-row: var(--combined-keypad-grid-row);
+  gap: var(--keypad-gap);
+  padding-right: 2rem;
 }
 
 .input-area {
@@ -152,7 +195,7 @@ button {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  gap: 5px;
+  gap: var(--keypad-gap);
 }
 
 .operator-pad {
@@ -168,13 +211,13 @@ button {
   /* margin-bottom: var(--major-section-margin-size); */
   grid-column: var(--result-area-gird-column);
   grid-row: var(--result-area-grid-row)
-
 }
 
 .expression-control-area {
   font-size: var(--ui-font-size);
   /* margin-bottom: var(--major-section-margin-size); */
   grid-column: var(--expression-control-area-grid-column);
+  grid-row: var(--expression-control-area-grid-row);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
@@ -205,10 +248,10 @@ button:disabled {
 
 #expression {
   background-color: inherit;
-  border: none; 
+  border: none;
   color: var(--white-color);
   font: inherit;
-  font-size: 1.2rem;
+  font-size: var(--expression-text-input-font-size);
   resize: none;
   grid-column: 1 / 3;
   grid-row: 1;
@@ -261,7 +304,7 @@ button:disabled {
   padding-left: 1em;
 }
 
-#calculate-btn {
+.calculate-btn {
   grid-column: 4 / 6;
   background-color: var(--black-color);
   color: var(--grey-color);
@@ -271,15 +314,15 @@ button:disabled {
 /* Styles from https://www.geeksforgeeks.org/how-to-create-toggle-switch-by-using-html-and-css/*/
 /* toggle in label designing */
 .toggle {
-  position : relative ;
+  position: relative;
   /* display : inline-block; */
-  width : 3rem;
-  height : 1.2rem;
+  width: 3rem;
+  height: 1.2rem;
   background-color: var(--grey-color);
   border-radius: 30px;
   border: 2px solid var(--dark-grey-color);
 }
-     
+
 /* After slide changes */
 .toggle:after {
   content: '';
@@ -290,30 +333,30 @@ button:disabled {
   background-color: var(--dark-grey-color);
   top: 0.06rem;
   left: 0.06rem;
-  transition:  all 0.5s;
+  transition: all 0.5s;
 }
-     
-     
+
+
 /* Checkbox checked effect */
-.checkbox:checked + .toggle::after {
-  left : 2rem;
+.checkbox:checked+.toggle::after {
+  left: 2rem;
   background-color: var(--grey-color);
 }
-     
+
 /* Checkbox checked toggle label bg color */
-.checkbox:checked + .toggle {
+.checkbox:checked+.toggle {
   background-color: var(--dark-grey-color);
   border: 2px solid var(--grey-color);
 }
-     
+
 /* Checkbox vanished */
 .checkbox {
-  display : none;
+  display: none;
 }
 
 #input-pad-selection-fieldset {
   grid-column: 1 / 4;
-  display: grid;
+  display: var(--input-pad-switch-display);
   grid-template-columns: 2fr 1fr 2fr;
   border: none;
 
