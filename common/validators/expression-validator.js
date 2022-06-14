@@ -23,8 +23,11 @@ export const ExpressionValidator = {
  * @param {String} expression 
  */
 const validateParentheses = (expression) => {
-    let numberOfOpenBrackets = expression.match(SpecialCharacterEnum.OPEN_BRACKET.regex).length
-    let numberOfClosedBrackets = expression.match(SpecialCharacterEnum.CLOSING_BRACKET.regex).length
+    let openBrackets = expression.match(SpecialCharacterEnum.OPEN_BRACKET.regex)
+    let closedBrackets =  expression.match(SpecialCharacterEnum.CLOSING_BRACKET.regex)
+
+    let numberOfOpenBrackets = (openBrackets === null) ? 0 : openBrackets.length
+    let numberOfClosedBrackets = (closedBrackets === null) ? 0 : closedBrackets.length
 
     if (numberOfOpenBrackets != numberOfClosedBrackets) throw new InvalidInputError("The expression contains unbalanced parentheses")
 }
