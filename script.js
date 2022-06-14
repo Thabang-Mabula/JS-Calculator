@@ -87,17 +87,23 @@ const toggleElementDisplay = (element, componentDefaultDisplayMode) => {
  * @param {MediaQueryList} screenDimensionQuery Media query list for the current screen
  */
 const displayKeypadForScreenDimensions = (screenDimensionQuery) => {
-    if (screenDimensions.matches) {
+    if (screenDimensionQuery.matches) {
         operatorPad.style.display = NO_DISPLAY
         numericalKeypad.style.display = NO_DISPLAY
         combinedKeyPad.style.display = GRID_DISPLAY
     } else {
-        operatorPad.style.display = NO_DISPLAY
-        numericalKeypad.style.display = GRID_DISPLAY
+        if (operatorSwitch.checked) {
+            operatorPad.style.display = GRID_DISPLAY
+            numericalKeypad.style.display = NO_DISPLAY
+        } else {
+            operatorPad.style.display = NO_DISPLAY
+            numericalKeypad.style.display = GRID_DISPLAY
+        }
+
         combinedKeyPad.style.display = NO_DISPLAY
     }
-  }
-  
+}
+
 var screenDimensionQuery = window.matchMedia(WIDE_SCREEN_MEDIA_QUERY)
 screenDimensionQuery.addEventListener('change', displayKeypadForScreenDimensions)
 
