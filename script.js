@@ -7,7 +7,13 @@ const decimanPrecisionInput = document.getElementById("decimal-precision")
 const resultElement = document.getElementById("result")
 const operatorPad = document.getElementById("operator-pad")
 const numericalKeypad = document.getElementById("numerical-keypad")
+const combinedKeyPad = document.getElementById("combined-keypad")
 const EMPTY_SPACE = " "
+
+const GRID_DISPLAY = "grid"
+const NO_DISPLAY = "none"
+
+const WIDE_SCREEN_MEDIA_QUERY = "(min-width: 768px)"
 
 const addNumberToInput = (event) => {
     let element = event.target
@@ -51,8 +57,8 @@ const calculate = () => {
  * Toggles the visibility of the numerical keypad and the operator keypad 
  */
 const toggleKeypads = () => {
-    toggleElementDisplay(operatorPad, "grid")
-    toggleElementDisplay(numericalKeypad, "grid")
+    toggleElementDisplay(operatorPad, GRID_DISPLAY)
+    toggleElementDisplay(numericalKeypad, GRID_DISPLAY)
 }
 
 /**
@@ -65,15 +71,35 @@ const toggleKeypads = () => {
  */
 const toggleElementDisplay = (element, componentDefaultDisplayMode) => {
     let display = window.getComputedStyle(element).display
-    if (display == "none") {
+    if (display == NO_DISPLAY) {
         display = componentDefaultDisplayMode
     } else {
-        display = "none"
+        display = NO_DISPLAY
     }
 
     element.style.display = display
     return element
 }
+
+/**
+ * Toggles the various keypads based on the dimensions of the the user's screen
+ * 
+ * @param {MediaQueryList} screenDimensionQuery Media query list for the current screen
+ */
+const displayKeypadForScreenDimensions = (screenDimensionQuery) => {
+    if (screenDimensions.matches) {
+        operatorPad.style.display = NO_DISPLAY
+        numericalKeypad.style.display = NO_DISPLAY
+        combinedKeyPad.style.display = GRID_DISPLAY
+    } else {
+        operatorPad.style.display = NO_DISPLAY
+        numericalKeypad.style.display = GRID_DISPLAY
+        combinedKeyPad.style.display = NO_DISPLAY
+    }
+  }
+  
+var screenDimensionQuery = window.matchMedia(WIDE_SCREEN_MEDIA_QUERY)
+screenDimensionQuery.addEventListener('change', displayKeypadForScreenDimensions)
 
 const keyPadButtons = document.querySelectorAll(".keypad-btn")
 keyPadButtons.forEach((currentBtn) => {
