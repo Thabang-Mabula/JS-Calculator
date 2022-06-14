@@ -1,4 +1,5 @@
 import { calculateResult } from "./calculator.js";
+import { KeyStrokeEventHandler } from "./common/event-handlers/keystroke-event-listener.js";
 import { ExpressionValidator } from "./common/validators/expression-validator.js";
 import { PreProcessor } from "./pre-processing/pre-processor.js";
 
@@ -134,4 +135,7 @@ decimanPrecisionInput.addEventListener('change', calculate)
 const operatorSwitch = document.getElementById("switch")
 operatorSwitch.addEventListener('change', toggleKeypads)
 
-
+document.addEventListener('keydown', (event) => {
+    const keyName = event.key;
+    KeyStrokeEventHandler.handleKeyEvent(keyName)
+}, false);
