@@ -20,7 +20,7 @@ export const ExpressionValidator = {
 
 /**
  * Validates that all brackets/parentheses are balanced
- * @param {String} expression 
+ * @param {String} expression Mathematical expression
  */
 const validateParentheses = (expression) => {
     let openBrackets = expression.match(SpecialCharacterEnum.OPEN_BRACKET.regex)
