@@ -23,24 +23,50 @@ export const KeyStrokeEnum = {
         keyName: "4",
         buttonClassName: "four-btn"
     },
-    FIVE:  {
+    FIVE: {
         keyName: "5",
         buttonClassName: "five-btn"
     },
-    SIX:  {
+    SIX: {
         keyName: "6",
         buttonClassName: "six-btn"
     },
-    SEVEN:  {
+    SEVEN: {
         keyName: "7",
         buttonClassName: "seven-btn"
     },
-    EIGHT:  {
+    EIGHT: {
         keyName: "8",
         buttonClassName: "eight-btn"
     },
     NINE: {
         keyName: "9",
         buttonClassName: "nine-btn"
+    },
+    ADD: {
+        keyName: "+",
+        buttonClassName: "plus-btn"
+    },
+    SUBTRACT: {
+        keyName: "-",
+        buttonClassName: "minus-btn"
+    },
+    MULTIPLY: {
+        keyName: "*",
+        buttonClassName: "multiply-btn"
+    },
+    DIVIDE: {
+        keyName: "/",
+        buttonClassName: "divide-btn"
+    },
+    ENTER: {
+        keyName: "Enter",
+        buttonClassName: "calculate-btn"
+    },
+    ERASE: {
+        keyName: "Backspace",
+        buttonId: "erase-btn"
     }
+
+
 }

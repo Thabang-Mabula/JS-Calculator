@@ -8,7 +8,9 @@ const handleKeyEvent = (keyName) => {
     for (let propertyName in KeyStrokeEnum) {
         let keystrokeEnumElem = KeyStrokeEnum[propertyName]
         if (keystrokeEnumElem.keyName == keyName) {
-            let btn = document.getElementsByClassName(keystrokeEnumElem.buttonClassName)[0]
+            let btn
+            if ("buttonClassName" in keystrokeEnumElem) btn = document.getElementsByClassName(keystrokeEnumElem.buttonClassName)[0]
+            else btn = document.getElementById(keystrokeEnumElem.buttonId)
             btn.click()
         }
     }
