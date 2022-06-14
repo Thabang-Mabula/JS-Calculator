@@ -27,6 +27,7 @@ Whilst this application can be run on any local web server, these steps will bri
 - `common`: folder containing modules that contain common, misc. functions, constants and classes.
   - `errors`: folder containing classes representing various kinds of errors
   - `validators`: folder containing utils that provide helpful validation functions
+  - `event-handlers`: folder containing classes, functions and constants for handling events
 - `operations`: folder containing constants and enums relating to mathematical operators
 - `pre-processing`: folder containing classes and utils that assist with processing expressions prior to calculation and evaluation
 
