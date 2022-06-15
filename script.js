@@ -2,6 +2,7 @@ import { calculateResult } from "./calculator.js";
 import { KeyStrokeEventHandler } from "./common/event-handlers/keystroke-event-listener.js";
 import { ExpressionValidator } from "./common/validators/expression-validator.js";
 import { PreProcessor } from "./pre-processing/pre-processor.js";
+import { displayError } from "./ui-messaging.js";
 
 const expressionInput = document.getElementById("expression")
 const decimanPrecisionInput = document.getElementById("decimal-precision")
@@ -48,7 +49,7 @@ const calculate = () => {
         let result = calculateResult(expression, decimalPrecision)
         resultElement.value = result
     } catch (error) {
-        alert(error.message)
+        displayError(error)
         console.error(error)
     }
 

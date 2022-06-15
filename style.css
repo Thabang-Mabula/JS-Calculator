@@ -9,6 +9,8 @@
   --white-color: white;
   --grey-color: #edebeb;
   --dark-grey-color: grey;
+  --light-red-color: #e3c5c1; 
+  --dark-red-color: #801001;
   --main-grid-column: 1 / 4;
   --grid-template-columns-main: repeat(3, 1fr);
   --global-font-size: 16px;
@@ -368,4 +370,25 @@ button:disabled {
   font-size: var(--ui-font-size);
   margin: 0;
   padding: 0;
+}
+
+.error-message-modal {
+  border: 5px solid var(--dark-red-color);
+  border-radius: var(--border-radius);
+  background-color: var(--light-red-color);
+  color: var(--dark-red-color);
+}
+
+#modal-heading {
+  font-size: 1.5rem;
+}
+
+#modal-text {
+  font-size: var(--ui-font-size);
+  font-weight: bold;
+}
+
+#close-modal {
+  background-color: var(--dark-red-color);
+  color: var(--white-color);
 }
