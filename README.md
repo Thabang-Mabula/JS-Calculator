@@ -24,6 +24,7 @@ Whilst this application can be run on any local web server, these steps will bri
 - `style.css`: styling for all the elements in `index.html`
 - `script.js`: script for `index.html` that gives functionality to the UI elements
 - `calculator.js`: contains functions that handle the logic for calculating the result of mathamtical expressions
+- `ui-messaging.js`: contains functions for interacting with the user (e.g. displaying error messages, etc.)
 - `common`: folder containing modules that contain common, misc. functions, constants and classes.
   - `errors`: folder containing classes representing various kinds of errors
   - `validators`: folder containing utils that provide helpful validation functions
