@@ -5,9 +5,7 @@ A simple calculator written in vanilla JavaScript, HTML5 and CSS.
 What differentiates this calculator from a lot of other calculator apps is 
 that it's able to evaluate mathematical expressions according to the "Order of Operations".
 
-![image](https://user-images.githubusercontent.com/41521247/173785251-051368fa-81ef-4257-a451-2a472375ceb4.png)
-
-![image](https://user-images.githubusercontent.com/41521247/173785318-506d70ba-c7df-42a1-8dfc-6d0af41a0083.png)
+![image](https://user-images.githubusercontent.com/41521247/173786474-b4849e5c-b9d9-4d0a-a43d-63c36e726cec.png)
 
 
 ## Running the application locally
